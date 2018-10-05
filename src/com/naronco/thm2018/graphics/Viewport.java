@@ -88,7 +88,7 @@ public class Viewport {
 				if (yp - y0 < 0) {
 					color = dataSource.getSkyColor();
 				} else {
-					color = dataSource.getFloorColor(xs, zs);
+					color = dataSource.getFloorColor(xs, -zs);
 				}
 				screen.setPixel(xp, yp, Dither.lookupColor(xp, yp, color));
 			}
