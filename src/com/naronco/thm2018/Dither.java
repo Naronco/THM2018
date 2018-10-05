@@ -52,6 +52,6 @@ public class Dither {
                 distance = odist;
             }
         }
-        return color;
+        return closest;
     }
 }
