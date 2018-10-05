@@ -8,7 +8,7 @@ public class Game extends Eggine {
 	public static Game instance;
 
 	public Game() {
-		super(60, 30, new Window("InfinityJam", new Dimension2d(160, 120), 4));
+		super(60, 60, new Window("InfinityJam", new Dimension2d(160, 120), 4));
 	}
 
 	double time=0;
@@ -59,7 +59,7 @@ public class Game extends Eggine {
 				} else {
 					color = floorColor(xs, zs);
 				}
-				screen.setPixel(xp, yp, color);
+				screen.setPixel(xp, yp, Dither.lookupColor(xp, yp, color));
 			}
 		}
 	}
