@@ -13,7 +13,8 @@ public class Game extends Eggine {
 		super(60, 60, new Window("InfinityJam", new Dimension2d(160, 120), 4));
 	}
 
-	double time=0;
+	double time = 0;
+	double rot = 0;
 
 	private int floorColor(double x, double y) {
 		double stripeLength = 5.0;
@@ -37,8 +38,11 @@ public class Game extends Eggine {
 		double x0 = screen.getDimension().getWidth() * 0.5;
 		double y0 = screen.getDimension().getHeight() * 1.0 / 3.0;
 
-		double xs = x;
-		double ys = y;
+		double sin = Math.sin(rot);
+		double cos = Math.cos(rot);
+
+		double xs = x * cos + y * -sin;
+		double ys = x * sin + y * cos;
 
 		double theta = 4 / ys;
 		double phi = xs / ys;
@@ -55,8 +59,6 @@ public class Game extends Eggine {
 
 		double x0 = screen.getDimension().getWidth() * 0.5;
 		double y0 = screen.getDimension().getHeight() * 1.0 / 3.0;
-
-		double rot = 0;
 
 		double sin = Math.sin(rot);
 		double cos = Math.cos(rot);
@@ -93,5 +95,6 @@ public class Game extends Eggine {
 	@Override
 	public void update(double delta) {
 		time += delta;
+		rot = 0;
 	}
 }
