@@ -52,20 +52,28 @@ public class Game extends Eggine implements IViewportDataSource {
 		double dx = x - crossingX;
 		double dy = y - crossingY;
 
+		double adx = Math.abs(dx);
+		double ady = Math.abs(dy);
+
 		double stripeLength = 5.0;
-		boolean isStreet = Math.abs(dx) <= 4;
-		boolean isStripeVertical = ((int)Math.floor(y / stripeLength) & 1) == 0;
-		boolean isStripe = (Math.abs(x) < 0.15) && isStripeVertical;
-		if (isStripe) {
-			return 0xffffff;
-		} else if (isStreet) {
-			if (isStripeVertical) {
-				return 0x696A6A;
-			} else {
-				return 0x595652;
-			}
-		} else {
+
+		boolean isStreet = adx <= 4 || ady <= 4;
+		if (!isStreet) {
 			return 0x00ff00;
+		}
+
+		boolean isCrossing = adx <= 4 && ady <= 4;
+		if (isCrossing) {
+			return 0x696A6A;
+		}
+
+		boolean isVerticalRoad = adx <= 4;
+		if (isVerticalRoad) {
+			boolean isStripe = (adx < 0.15) && ((int)Math.floor(ady / stripeLength) & 1) == 0;
+			return isStripe ? 0xffffff : 0x696A6A;
+		} else {
+			boolean isStripe = (ady < 0.15) && ((int)Math.floor(adx / stripeLength) & 1) == 0;
+			return isStripe ? 0xffffff : 0x696A6A;
 		}
 	}
 }
