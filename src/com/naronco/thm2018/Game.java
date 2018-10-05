@@ -4,6 +4,8 @@ import com.deviotion.ld.eggine.Eggine;
 import com.deviotion.ld.eggine.graphics.*;
 import com.deviotion.ld.eggine.math.Dimension2d;
 
+import java.io.File;
+
 public class Game extends Eggine {
 	public static Game instance;
 
@@ -14,16 +16,37 @@ public class Game extends Eggine {
 	double time=0;
 
 	private int floorColor(double x, double y) {
-		double stripeLength = 3.0;
-		boolean isStripe = (Math.abs(x) < 0.15) && ((int)Math.floor(y / stripeLength) & 1) == 0;
+		double stripeLength = 5.0;
+		boolean flag = ((int)Math.floor(y / stripeLength) & 1) == 0;
+		boolean isStripe = (Math.abs(x) < 0.15) && flag;
 		if (isStripe) {
 			return 0xffffff;
 		}
 		if (Math.abs(x) > 4) {
 			return 0x00ff00;
 		} else {
-			return 0x777777;
+			if (flag) {
+				return 0x696A6A;
+			} else {
+				return 0x595652;
+			}
 		}
+	}
+
+	private void renderSprite(Screen screen, double x, double y, int startX, int startY, int width, int height, Sprite sprite) {
+		double x0 = screen.getDimension().getWidth() * 0.5;
+		double y0 = screen.getDimension().getHeight() * 1.0 / 3.0;
+
+		double xs = x;
+		double ys = y;
+
+		double theta = 4 / ys;
+		double phi = xs / ys;
+
+		double xp = phi * screen.getDimension().getWidth() + x0;
+		double yp = theta * screen.getDimension().getHeight() + y0;
+
+		screen.renderSprite((int)(xp - width / 2), (int)(yp - height), startX, startY, width, height, sprite);
 	}
 
 	@Override
@@ -33,19 +56,19 @@ public class Game extends Eggine {
 		double x0 = screen.getDimension().getWidth() * 0.5;
 		double y0 = screen.getDimension().getHeight() * 1.0 / 3.0;
 
-		double rot = time;
+		double rot = 0;
 
 		double sin = Math.sin(rot);
 		double cos = Math.cos(rot);
 
-		double posZ = time * 10;
+		double posZ = time * 50 / 3.6;
 
 		int skyColor = 0x0080ff;
 		int streetColor = 0x777777;
 
 		for (int yp = 0; yp < screen.getDimension().getHeight(); ++yp) {
 			double theta = -(yp - y0) / screen.getDimension().getHeight();
-			double z = 4 / theta;
+			double z = 4 / (theta - 0.01);
 
 			for (int xp = 0; xp < screen.getDimension().getWidth(); ++xp) {
 				double phi = (xp - x0) / screen.getDimension().getWidth();
@@ -55,7 +78,7 @@ public class Game extends Eggine {
 				double zs = x * -sin + z * cos - posZ;
 
 				int color;
-				if (theta >= 0) {
+				if (yp - y0 < 0) {
 					color = skyColor;
 				} else {
 					color = floorColor(xs, zs);
@@ -63,6 +86,8 @@ public class Game extends Eggine {
 				screen.setPixel(xp, yp, Dither.lookupColor(xp, yp, color));
 			}
 		}
+
+		renderSprite(screen, 0, 7, 94, 0, 60, 61, Sprites.car);
 	}
 
 	@Override
