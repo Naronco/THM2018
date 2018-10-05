@@ -69,10 +69,10 @@ public class Game extends Eggine implements IViewportDataSource {
 
 		boolean isVerticalRoad = adx <= 4;
 		if (isVerticalRoad) {
-			boolean isStripe = (adx < 0.15) && ((int)Math.floor(ady / stripeLength) & 1) == 0;
+			boolean isStripe = (adx < 0.15) && ((int)Math.floor(ady / stripeLength) & 1) == 1;
 			return isStripe ? 0xffffff : 0x696A6A;
 		} else {
-			boolean isStripe = (ady < 0.15) && ((int)Math.floor(adx / stripeLength) & 1) == 0;
+			boolean isStripe = (ady < 0.15) && ((int)Math.floor(adx / stripeLength) & 1) == 1;
 			return isStripe ? 0xffffff : 0x696A6A;
 		}
 	}
