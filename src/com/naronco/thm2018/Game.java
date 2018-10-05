@@ -11,6 +11,9 @@ import java.awt.event.KeyEvent;
 public class Game extends Eggine implements IViewportDataSource {
 	private Viewport viewport;
 
+	private double crossingX = 0;
+	private double crossingY = 64;
+
 	public Game() {
 		super(60, 60, new Window("InfinityJam", new Dimension2d(160, 120), 4));
 
@@ -19,13 +22,10 @@ public class Game extends Eggine implements IViewportDataSource {
 	}
 
 	double time = 0;
-	double rot = 0;
 
 	@Override
 	public void render(Screen screen) {
 		screen.fillScreen(0xF2F2F2);
-
-		viewport.getCameraPosition().setY(time * 50 / 3.6);
 
 		viewport.render(screen);
 		viewport.renderSprite3D(screen, 0, 7, 94, 0, 60, 61, Sprites.car);
@@ -34,8 +34,9 @@ public class Game extends Eggine implements IViewportDataSource {
 	@Override
 	public void update(double delta) {
 		time += delta;
-		rot = 0;
-		if (getKeyboard().isPressed(KeyEvent.VK_RIGHT)) {
+		double y = viewport.getCameraPosition().getY();
+		if (y < crossingY - 16) {
+			viewport.getCameraPosition().setY(y + delta * 50 / 3.6);
 		}
 	}
 
@@ -46,9 +47,6 @@ public class Game extends Eggine implements IViewportDataSource {
 
 	@Override
 	public int getFloorColor(double x, double y) {
-		double crossingX = 0;
-		double crossingY = -64;
-
 		double dx = x - crossingX;
 		double dy = y - crossingY;
 
@@ -69,10 +67,10 @@ public class Game extends Eggine implements IViewportDataSource {
 
 		boolean isVerticalRoad = adx <= 4;
 		if (isVerticalRoad) {
-			boolean isStripe = (adx < 0.15) && ((int)Math.floor(ady / stripeLength) & 1) == 1;
+			boolean isStripe = (adx < 0.4) && ((int)Math.floor(ady / stripeLength) & 1) == 1;
 			return isStripe ? 0xffffff : 0x696A6A;
 		} else {
-			boolean isStripe = (ady < 0.15) && ((int)Math.floor(adx / stripeLength) & 1) == 1;
+			boolean isStripe = (ady < 0.4) && ((int)Math.floor(adx / stripeLength) & 1) == 1;
 			return isStripe ? 0xffffff : 0x696A6A;
 		}
 	}
