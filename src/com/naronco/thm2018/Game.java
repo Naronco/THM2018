@@ -3,98 +3,69 @@ package com.naronco.thm2018;
 import com.deviotion.ld.eggine.Eggine;
 import com.deviotion.ld.eggine.graphics.*;
 import com.deviotion.ld.eggine.math.Dimension2d;
+import com.naronco.thm2018.graphics.IViewportDataSource;
+import com.naronco.thm2018.graphics.Viewport;
 
-import java.io.File;
+import java.awt.event.KeyEvent;
 
-public class Game extends Eggine {
-	public static Game instance;
+public class Game extends Eggine implements IViewportDataSource {
+	private Viewport viewport;
 
 	public Game() {
 		super(60, 60, new Window("InfinityJam", new Dimension2d(160, 120), 4));
+
+		this.viewport = new Viewport();
+		viewport.setDataSource(this);
 	}
 
 	double time = 0;
 	double rot = 0;
 
-	private int floorColor(double x, double y) {
-		double stripeLength = 5.0;
-		boolean flag = ((int)Math.floor(y / stripeLength) & 1) == 0;
-		boolean isStripe = (Math.abs(x) < 0.15) && flag;
-		if (isStripe) {
-			return 0xffffff;
-		}
-		if (Math.abs(x) > 4) {
-			return 0x00ff00;
-		} else {
-			if (flag) {
-				return 0x696A6A;
-			} else {
-				return 0x595652;
-			}
-		}
-	}
-
-	private void renderSprite(Screen screen, double x, double y, int startX, int startY, int width, int height, Sprite sprite) {
-		double x0 = screen.getDimension().getWidth() * 0.5;
-		double y0 = screen.getDimension().getHeight() * 1.0 / 3.0;
-
-		double sin = Math.sin(rot);
-		double cos = Math.cos(rot);
-
-		double xs = x * cos + y * -sin;
-		double ys = x * sin + y * cos;
-
-		double theta = 4 / ys;
-		double phi = xs / ys;
-
-		double xp = phi * screen.getDimension().getWidth() + x0;
-		double yp = theta * screen.getDimension().getHeight() + y0;
-
-		screen.renderSprite((int)(xp - width / 2), (int)(yp - height), startX, startY, width, height, sprite);
-	}
-
 	@Override
 	public void render(Screen screen) {
 		screen.fillScreen(0xF2F2F2);
 
-		double x0 = screen.getDimension().getWidth() * 0.5;
-		double y0 = screen.getDimension().getHeight() * 1.0 / 3.0;
+		viewport.getCameraPosition().setY(time * 50 / 3.6);
 
-		double sin = Math.sin(rot);
-		double cos = Math.cos(rot);
-
-		double posZ = time * 50 / 3.6;
-
-		int skyColor = 0x0080ff;
-		int streetColor = 0x777777;
-
-		for (int yp = 0; yp < screen.getDimension().getHeight(); ++yp) {
-			double theta = -(yp - y0) / screen.getDimension().getHeight();
-			double z = 4 / (theta - 0.01);
-
-			for (int xp = 0; xp < screen.getDimension().getWidth(); ++xp) {
-				double phi = (xp - x0) / screen.getDimension().getWidth();
-				double x = phi * z;
-
-				double xs = x * cos + z * sin;
-				double zs = x * -sin + z * cos - posZ;
-
-				int color;
-				if (yp - y0 < 0) {
-					color = skyColor;
-				} else {
-					color = floorColor(xs, zs);
-				}
-				screen.setPixel(xp, yp, Dither.lookupColor(xp, yp, color));
-			}
-		}
-
-		renderSprite(screen, 0, 7, 94, 0, 60, 61, Sprites.car);
+		viewport.render(screen);
+		viewport.renderSprite3D(screen, 0, 7, 94, 0, 60, 61, Sprites.car);
 	}
 
 	@Override
 	public void update(double delta) {
 		time += delta;
 		rot = 0;
+		if (getKeyboard().isPressed(KeyEvent.VK_RIGHT)) {
+		}
+	}
+
+	@Override
+	public int getSkyColor() {
+		return 0x0080ff;
+	}
+
+	@Override
+	public int getFloorColor(double x, double y) {
+		double crossingX = 0;
+		double crossingY = -64;
+
+		double dx = x - crossingX;
+		double dy = y - crossingY;
+
+		double stripeLength = 5.0;
+		boolean isStreet = Math.abs(dx) <= 4;
+		boolean isStripeVertical = ((int)Math.floor(y / stripeLength) & 1) == 0;
+		boolean isStripe = (Math.abs(x) < 0.15) && isStripeVertical;
+		if (isStripe) {
+			return 0xffffff;
+		} else if (isStreet) {
+			if (isStripeVertical) {
+				return 0x696A6A;
+			} else {
+				return 0x595652;
+			}
+		} else {
+			return 0x00ff00;
+		}
 	}
 }
