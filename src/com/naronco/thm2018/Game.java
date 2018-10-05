@@ -33,10 +33,12 @@ public class Game extends Eggine {
 		double x0 = screen.getDimension().getWidth() * 0.5;
 		double y0 = screen.getDimension().getHeight() * 1.0 / 3.0;
 
-		double sin = Math.sin(time);
-		double cos = Math.cos(time);
+		double rot = time;
 
-		double posZ = time;
+		double sin = Math.sin(rot);
+		double cos = Math.cos(rot);
+
+		double posZ = time * 10;
 
 		int skyColor = 0x0080ff;
 		int streetColor = 0x777777;
@@ -50,8 +52,7 @@ public class Game extends Eggine {
 				double x = phi * z;
 
 				double xs = x * cos + z * sin;
-				double zs = z * -sin + x * cos;
-				zs -= posZ;
+				double zs = x * -sin + z * cos - posZ;
 
 				int color;
 				if (theta >= 0) {
