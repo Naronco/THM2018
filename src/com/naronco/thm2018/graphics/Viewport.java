@@ -19,6 +19,10 @@ public class Viewport {
 	}
 
 	public void renderSprite3D(Screen screen, double x, double y, int startX, int startY, int width, int height, Sprite sprite) {
+		renderSprite3D(screen, x, y, startX, startY, width, height, sprite, 0, 0);
+	}
+
+	public void renderSprite3D(Screen screen, double x, double y, int startX, int startY, int width, int height, Sprite sprite, int offsetX, int offsetY) {
 		double x0 = screen.getDimension().getWidth() * 0.5;
 		double y0 = screen.getDimension().getHeight() * 1.0 / HORIZON_OFFSET;
 
@@ -34,7 +38,7 @@ public class Viewport {
 		double xp = phi * screen.getDimension().getWidth() + x0;
 		double yp = theta * screen.getDimension().getHeight() + y0;
 
-		screen.renderSprite((int) (xp - width / 2), (int) (yp - height), startX, startY, width, height, sprite);
+		screen.renderSprite((int) (xp - width / 2) + offsetX, (int) (yp - height) + offsetY, startX, startY, width, height, sprite);
 	}
 
 	public void render(Screen screen) {
