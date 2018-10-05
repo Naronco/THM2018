@@ -11,13 +11,16 @@ public class Viewport {
 	private Vector2d cameraPosition;
 	private double rotation;
 
+	private static final double HORIZON_OFFSET = 10.0;
+	private static final double CAMERA_HEIGHT = 6.5;
+
 	public Viewport() {
 		this.cameraPosition = new Vector2d(0, 0);
 	}
 
 	public void renderSprite3D(Screen screen, double x, double y, int startX, int startY, int width, int height, Sprite sprite) {
 		double x0 = screen.getDimension().getWidth() * 0.5;
-		double y0 = screen.getDimension().getHeight() * 1.0 / 3.0;
+		double y0 = screen.getDimension().getHeight() * 1.0 / HORIZON_OFFSET;
 
 		double sin = Math.sin(rotation);
 		double cos = Math.cos(rotation);
@@ -25,18 +28,18 @@ public class Viewport {
 		double xs = x * cos + y * -sin;
 		double ys = x * sin + y * cos;
 
-		double theta = 4 / ys;
+		double theta = CAMERA_HEIGHT / ys;
 		double phi = xs / ys;
 
 		double xp = phi * screen.getDimension().getWidth() + x0;
 		double yp = theta * screen.getDimension().getHeight() + y0;
 
-		screen.renderSprite((int)(xp - width / 2), (int)(yp - height), startX, startY, width, height, sprite);
+		screen.renderSprite((int) (xp - width / 2), (int) (yp - height), startX, startY, width, height, sprite);
 	}
 
 	public void render(Screen screen) {
 		double x0 = screen.getDimension().getWidth() * 0.5;
-		double y0 = screen.getDimension().getHeight() * 1.0 / 3.0;
+		double y0 = screen.getDimension().getHeight() * 1.0 / HORIZON_OFFSET;
 
 		double sin = Math.sin(rotation);
 		double cos = Math.cos(rotation);
