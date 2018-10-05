@@ -11,19 +11,61 @@ public class Game extends Eggine {
 		super(60, 30, new Window("InfinityJam", new Dimension2d(160, 120), 4));
 	}
 
+	double time=0;
+
+	private int floorColor(double x, double y) {
+		double stripeLength = 3.0;
+		boolean isStripe = (Math.abs(x) < 0.15) && ((int)Math.floor(y / stripeLength) & 1) == 0;
+		if (isStripe) {
+			return 0xffffff;
+		}
+		if (Math.abs(x) > 4) {
+			return 0x00ff00;
+		} else {
+			return 0x777777;
+		}
+	}
+
 	@Override
 	public void render(Screen screen) {
 		screen.fillScreen(0xF2F2F2);
 
-		for (int y = 0; y < screen.getDimension().getHeight(); ++y) {
+		double x0 = screen.getDimension().getWidth() * 0.5;
+		double y0 = screen.getDimension().getHeight() * 1.0 / 3.0;
 
-			for (int x = 0; x < screen.getDimension().getWidth(); ++x) {
+		double sin = Math.sin(time);
+		double cos = Math.cos(time);
+
+		double posZ = time;
+
+		int skyColor = 0x0080ff;
+		int streetColor = 0x777777;
+
+		for (int yp = 0; yp < screen.getDimension().getHeight(); ++yp) {
+			double theta = -(yp - y0) / screen.getDimension().getHeight();
+			double z = 4 / theta;
+
+			for (int xp = 0; xp < screen.getDimension().getWidth(); ++xp) {
+				double phi = (xp - x0) / screen.getDimension().getWidth();
+				double x = phi * z;
+
+				double xs = x * cos + z * sin;
+				double zs = z * -sin + x * cos;
+				zs -= posZ;
+
+				int color;
+				if (theta >= 0) {
+					color = skyColor;
+				} else {
+					color = floorColor(xs, zs);
+				}
+				screen.setPixel(xp, yp, color);
 			}
 		}
-		screen.setPixel(10, 10, 0xff0000);
 	}
 
 	@Override
 	public void update(double delta) {
+		time += delta;
 	}
 }
