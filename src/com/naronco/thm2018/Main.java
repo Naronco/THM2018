@@ -1,4 +1,4 @@
-package de.shadowbikers.thm2018;
+package com.naronco.thm2018;
 
 public class Main {
 	public static void main(String[] args) throws Exception {

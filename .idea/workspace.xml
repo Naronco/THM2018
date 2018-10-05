@@ -5,7 +5,11 @@
     <option name="SHOW_STRUCTURE" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c66592c8-2f46-4122-8531-5032404eb13d" name="Default" comment="" />
+    <list default="true" id="c66592c8-2f46-4122-8531-5032404eb13d" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/de/shadowbikers/thm2018/Game.java" afterPath="$PROJECT_DIR$/src/com/naronco/thm2018/Game.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/de/shadowbikers/thm2018/Main.java" afterPath="$PROJECT_DIR$/src/com/naronco/thm2018/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,21 +23,21 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/de/shadowbikers/thm2018/Game.java">
+        <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+            <state relative-caret-position="221">
+              <caret line="13" column="13" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#247#248#0" expanded="true" />
-                <element signature="e#324#325#0" expanded="true" />
+                <element signature="e#243#244#0" expanded="true" />
+                <element signature="e#320#321#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/de/shadowbikers/thm2018/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
               <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
@@ -109,7 +113,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/scenes/Elevator.java" />
         <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/interactables/Bed.java" />
         <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/interactables/Bottle.java" />
         <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/interactables/Bucket.java" />
@@ -160,6 +163,7 @@
         <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/Game.java" />
         <option value="$PROJECT_DIR$/src/de/shadowbikers/thm2018/Main.java" />
         <option value="$PROJECT_DIR$/src/de/shadowbikers/thm2018/Game.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/Game.java" />
       </list>
     </option>
   </component>
@@ -244,12 +248,20 @@
               <item name="THM2018" type="b2602c69:ProjectViewProjectNode" />
               <item name="THM2018" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="THM2018" type="b2602c69:ProjectViewProjectNode" />
+              <item name="THM2018" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="eggine" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="THM2018" type="b2602c69:ProjectViewProjectNode" />
               <item name="THM2018" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="thm2018" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -785,7 +797,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/shadowbikers/thm2018/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
@@ -793,14 +805,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/shadowbikers/thm2018/Game.java">
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+        <state relative-caret-position="221">
+          <caret line="13" column="13" lean-forward="true" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#247#248#0" expanded="true" />
-            <element signature="e#324#325#0" expanded="true" />
+            <element signature="e#243#244#0" expanded="true" />
+            <element signature="e#320#321#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,4 +1,4 @@
-package de.shadowbikers.thm2018;
+package com.naronco.thm2018;
 
 import com.deviotion.ld.eggine.Eggine;
 import com.deviotion.ld.eggine.graphics.*;
@@ -16,7 +16,7 @@ public class Game extends Eggine {
 		screen.fillScreen(0xF2F2F2);
 
 		for (int y = 0; y < screen.getDimension().getHeight(); ++y) {
-			
+
 			for (int x = 0; x < screen.getDimension().getWidth(); ++x) {
 			}
 		}
