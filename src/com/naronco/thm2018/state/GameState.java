@@ -83,7 +83,7 @@ public class GameState implements IState, IViewportDataSource {
 
 	@Override
 	public int getSkyColor() {
-		return 0x0080ff;
+		return 0xf0f0f0;
 	}
 
 	@Override

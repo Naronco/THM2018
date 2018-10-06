@@ -158,7 +158,7 @@ public class DecisionGameState implements IGameState {
 
 	@Override
 	public int getCeilingColor(double x, double y) {
-		return 0x0080ff;
+		return -1;
 	}
 
 	@Override
