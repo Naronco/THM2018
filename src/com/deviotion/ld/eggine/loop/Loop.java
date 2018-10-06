@@ -66,7 +66,7 @@ public abstract class Loop {
                 this.lagUpdate += taken;
 
                 while (this.lagUpdate > this.calculatedUpdateRate) {
-                    this.update(this.lagUpdate / 1000000000f);
+                    this.update(1.0 / this.updateRate);
 
                     this.lagUpdate -= this.calculatedUpdateRate;
                     this.updates++;
