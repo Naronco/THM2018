@@ -1,16 +1,18 @@
 package com.naronco.thm2018.state.game;
 
-import com.deviotion.ld.eggine.graphics.Screen;
-import com.deviotion.ld.eggine.input.Keyboard;
-import com.deviotion.ld.eggine.math.Vector2d;
-import com.naronco.thm2018.Sprite3D;
-import com.naronco.thm2018.Sprites;
-import com.naronco.thm2018.graphics.Viewport;
-import com.naronco.thm2018.state.GameState;
-
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.deviotion.ld.eggine.graphics.Screen;
+import com.deviotion.ld.eggine.math.Vector2d;
+import com.naronco.thm2018.Sprite3D;
+import com.naronco.thm2018.Sprites;
+import com.naronco.thm2018.alley.Alley;
+import com.naronco.thm2018.alley.Bridge;
+import com.naronco.thm2018.alley.House;
+import com.naronco.thm2018.graphics.Viewport;
+import com.naronco.thm2018.state.GameState;
 
 public class ObstaclesGameState implements IGameState {
 	private GameState game;
@@ -27,8 +29,23 @@ public class ObstaclesGameState implements IGameState {
 
 	private List<Obstacle> obstacles = new ArrayList<>();
 
+	private Alley environment = new Alley();
+	
 	public ObstaclesGameState(GameState game) {
 		this.game = game;
+		
+		this.environment = new Alley();
+		for (double y = 0; y < length - houseLength; y += houseSpacing + houseLength) {
+			//environment.addObject(new House(new Vector2d(-6, y), new Vector2d(-12, y + houseLength)));
+			//environment.addObject(new House(new Vector2d(12, y), new Vector2d(6, y + houseLength)));
+			
+			environment.addObject(new Bridge(new Vector2d(-6, y), new Vector2d(6, y + 10)));
+		}
+	}
+
+	@Override
+	public int getCeilingColor(double x, double y) {
+		return environment.getCeilingColor(x, y);
 	}
 
 	@Override
@@ -56,13 +73,7 @@ public class ObstaclesGameState implements IGameState {
 	public void render(Screen screen) {
 		Viewport viewport = game.getViewport();
 		
-		for (double y = 0; y < length - houseLength; y += houseSpacing + houseLength) {
-			viewport.renderWall(screen, new Vector2d(-6, y), new Vector2d(-6, y + houseLength), 0xEEC39A);
-			viewport.renderWall(screen, new Vector2d(-12, y), new Vector2d(-6, y), 0xDF7126);
-			
-			viewport.renderWall(screen, new Vector2d(6, y + houseLength), new Vector2d(6, y), 0xEEC39A);
-			viewport.renderWall(screen, new Vector2d(6, y), new Vector2d(12, y), 0xDF7126);
-		}
+		environment.render(screen, viewport);
 		
 		for (Obstacle obstacle : obstacles) {
 			viewport.renderSprite3D(screen, obstacle.getSprite());

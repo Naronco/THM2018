@@ -1,5 +1,7 @@
 package com.naronco.thm2018.state.game;
 
+import java.awt.event.KeyEvent;
+
 import com.deviotion.ld.eggine.graphics.Screen;
 import com.deviotion.ld.eggine.math.Vector2d;
 import com.naronco.thm2018.Sprite3D;
@@ -7,8 +9,6 @@ import com.naronco.thm2018.Sprites;
 import com.naronco.thm2018.graphics.Viewport;
 import com.naronco.thm2018.maze.Point;
 import com.naronco.thm2018.state.GameState;
-
-import java.awt.event.KeyEvent;
 
 public class DecisionGameState implements IGameState {
 	private double crossingX = 0;
@@ -124,12 +124,18 @@ public class DecisionGameState implements IGameState {
 				p = 1.0;
 			}
 			animatingTime += delta;
-			game.getCar().drive(delta * p);
+			game.getCar().setSpeed(p * 70);
+			game.getCar().drive(delta);
 
 			if (p >= 1.0) {
 				game.transitionIntoNextState();
 			}
 		}
+	}
+	
+	@Override
+	public int getCeilingColor(double x, double y) {
+		return 0x0080ff;
 	}
 
 	@Override

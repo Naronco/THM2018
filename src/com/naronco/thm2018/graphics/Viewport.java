@@ -20,6 +20,7 @@ public class Viewport {
 
 	private static final double HORIZON_OFFSET = 6.0;
 	private static final double CAMERA_HEIGHT = 5;
+	public static final double CEILING_HEIGHT = 3;
 
 	public Viewport(Dimension2d size) {
 		this.size = size;
@@ -128,20 +129,27 @@ public class Viewport {
 	}
 
 	public void renderWall(Screen screen, Vector2d start, Vector2d end, int color) {
+		renderWall(screen, new Vector3d(start.getX(), start.getY(), -CAMERA_HEIGHT), new Vector3d(end.getX(), end.getY(), CEILING_HEIGHT), color);
+	}
+	
+	public void renderWall(Screen screen, Vector3d start, Vector3d end, int color) {
 		double centerX = size.getWidth() * 0.5;
 		double centerY = size.getHeight() * 1.0 / HORIZON_OFFSET;
 
 		double sin = Math.sin(rotation);
 		double cos = Math.cos(rotation);
-		
-		start = start.subtract(cameraPosition);
-		end = end.subtract(cameraPosition);
-		
-		double x1 = start.getX() * cos + start.getY() * -sin;
-		double y1 = start.getX() * sin + start.getY() * cos;
 
-		double x2 = end.getX() * cos + end.getY() * -sin;
-		double y2 = end.getX() * sin + end.getY() * cos;
+		double xo1 = start.getX() - cameraPosition.getX();
+		double yo1 = start.getY() - cameraPosition.getY();
+
+		double xo2 = end.getX() - cameraPosition.getX();
+		double yo2 = end.getY() - cameraPosition.getY();
+		
+		double x1 = xo1 * cos + yo1 * -sin;
+		double y1 = xo1 * sin + yo1 * cos;
+
+		double x2 = xo2 * cos + yo2 * -sin;
+		double y2 = xo2 * sin + yo2 * cos;
 
 		double clip = 0.1;
 		if (y1 < clip && y2 < clip) return;
@@ -162,11 +170,11 @@ public class Viewport {
 		
 		if (xp2 <= xp1) return;
 		
-		double l1 = (CAMERA_HEIGHT / y1) * size.getHeight() + centerY;
-		double u1 = (-1 / y1) * size.getHeight() + centerY;
+		double l1 = (-start.getZ() / y1) * size.getHeight() + centerY;
+		double u1 = (-end.getZ() / y1) * size.getHeight() + centerY;
 		
-		double l2 = (CAMERA_HEIGHT / y2) * size.getHeight() + centerY;
-		double u2 = (-1 / y2) * size.getHeight() + centerY;
+		double l2 = (-start.getZ() / y2) * size.getHeight() + centerY;
+		double u2 = (-end.getZ() / y2) * size.getHeight() + centerY;
 		
 		int xpi1 = (int)xp1;
 		int xpi2 = (int)xp2;
@@ -207,6 +215,9 @@ public class Viewport {
 		for (int yp = 0; yp < screen.getDimension().getHeight(); ++yp) {
 			double theta = -(yp - y0) / screen.getDimension().getHeight();
 			double z = CAMERA_HEIGHT / (theta - 0.01);
+			if (yp < y0) {
+				z = CEILING_HEIGHT / -theta;
+			}
 
 			for (int xp = 0; xp < screen.getDimension().getWidth(); ++xp) {
 				double phi = (xp - x0) / screen.getDimension().getWidth();
@@ -216,27 +227,32 @@ public class Viewport {
 				double zs = x * -sin + z * cos - cameraPosition.getY();
 
 				int color;
+				double depth = Math.sqrt(z * z + x * x);
 				if (yp - y0 < 0) {
-					color = dataSource.getSkyColor();
+					color = dataSource.getCeilingColor(xs, -zs);
+					if (color < 0) {
+						color = dataSource.getSkyColor();
+						depth = 1000000;
+					}
 				} else {
 					color = dataSource.getFloorColor(xs, -zs);
 				}
 				screen.setPixel(xp, yp, color);
-				zBuffer[xp + yp * (int) size.getWidth()] = Math.sqrt(z * z + x * x);
+				zBuffer[xp + yp * (int) size.getWidth()] = depth;
 			}
 		}
 	}
 
 	public void postProcess(Screen screen) {
-		int sky = getDataSource().getSkyColor();
-		int skyR = ((sky >> 16) & 0xFF) / 4;
-		int skyG = ((sky >> 8) & 0xFF) / 4;
-		int skyB = ((sky) & 0xFF) / 4;
+		int sky = 0xf0f0f0;
+		int skyR = ((sky >> 16) & 0xFF);
+		int skyG = ((sky >> 8) & 0xFF);
+		int skyB = ((sky) & 0xFF);
 
 		for (int yp = 0; yp < size.getHeight(); ++yp) {
 			for (int xp = 0; xp < size.getWidth(); ++xp) {
 				double z = zBuffer[xp + yp * (int)size.getWidth()];
-				int br = 0xff - (int)((z * z * z * 0.0001 - 10));
+				int br = 0xff - (int)((z * z * 0.01 - 10));
 				if (br < 0) br = 0;
 				if (br > 0xff) br = 0xff;
 				int color = screen.getPixel(xp, yp);

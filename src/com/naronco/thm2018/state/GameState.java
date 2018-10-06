@@ -83,6 +83,11 @@ public class GameState implements IState, IViewportDataSource {
 	public int getSkyColor() {
 		return 0x0080ff;
 	}
+	
+	@Override
+	public int getCeilingColor(double x, double y) {
+		return ((IGameState) parts.getCurrentState()).getCeilingColor(x, y);
+	}
 
 	public int getGrassFloorColor(double x, double y) {
 		return 0x6ABE30;
