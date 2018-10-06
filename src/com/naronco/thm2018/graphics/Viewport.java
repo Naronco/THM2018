@@ -41,7 +41,6 @@ public class Viewport {
 		double ys = input.getX() * sin + input.getY() * cos;
 
 		if (ys < 0.1) return null;
-
 		double theta = CAMERA_HEIGHT / ys;
 		double phi = xs / ys;
 
@@ -125,11 +124,72 @@ public class Viewport {
 	}
 
 	public void renderWall(Screen screen, Vector2d start, Vector2d end) {
-		Vector3d p1 = projectWorldToViewport(screen, start.getX(), start.getY());
-		Vector3d p2 = projectWorldToViewport(screen, end.getX(), end.getY());
-		if (p1 == null || p2 == null) return;
-		screen.setPixel((int) p1.getX(), (int) p1.getY(), 0xff00ff);
-		setZPixel((int) p1.getX(), (int) p1.getY(), p1.getZ());
+		double centerX = size.getWidth() * 0.5;
+		double centerY = size.getHeight() * 1.0 / HORIZON_OFFSET;
+
+		double sin = Math.sin(rotation);
+		double cos = Math.cos(rotation);
+		
+		start = start.subtract(cameraPosition);
+		end = end.subtract(cameraPosition);
+		
+		double x1 = start.getX() * cos + start.getY() * -sin;
+		double y1 = start.getX() * sin + start.getY() * cos;
+
+		double x2 = end.getX() * cos + end.getY() * -sin;
+		double y2 = end.getX() * sin + end.getY() * cos;
+
+		double clip = 0.1;
+		if (y1 < clip && y2 < clip) return;
+		if (y1 < clip) {
+			double p = (clip - y1) / (y2 - y1);
+			y1 = y1 + (y2 - y1) * p;
+			x1 = x1 + (x2 - x1) * p;
+		}
+		
+		if (y2 < clip) {
+			double p = (clip - y1) / (y2 - y1);
+			y2 = y1 + (y2 - y1) * p;
+			x2 = x1 + (x2 - x1) * p;
+		}
+		
+		double xp1 = (x1 / y1) * size.getWidth() + centerX;
+		double xp2 = (x2 / y2) * size.getWidth() + centerX;
+		
+		if (xp2 <= xp1) return;
+		
+		double l1 = (CAMERA_HEIGHT / y1) * size.getHeight() + centerY;
+		double u1 = (-1 / y1) * size.getHeight() + centerY;
+		
+		double l2 = (CAMERA_HEIGHT / y2) * size.getHeight() + centerY;
+		double u2 = (-1 / y2) * size.getHeight() + centerY;
+		
+		int xpi1 = (int)xp1;
+		int xpi2 = (int)xp2;
+		
+		double iz1 = 1 / y1;
+		double iz2 = 1 / y2;
+		
+		for (int x = xpi1; x <= xpi2; ++x) {
+			if (x < 0 || x >= (int)size.getWidth()) continue;
+			
+			double p = (x - xp1) / (xp2 - xp1);
+			
+			double yp1 = u1 + (u2 - u1) * p;
+			double yp2 = l1 + (l2 - l1) * p;
+			
+			double z = 1 / (iz1 + (iz2 - iz1) * p);
+			
+			int ypi1 = (int)yp1;
+			int ypi2 = (int)yp2;
+
+			for (int y = ypi1; y <= ypi2; ++y) {
+				if (y < 0 || y >= (int)size.getHeight()) continue;
+				
+				zBuffer[x + y * (int)size.getWidth()] = z;
+				screen.setPixel(x, y, 0xff00ff);
+			}
+		}
 	}
 
 	public void render(Screen screen) {
@@ -162,25 +222,16 @@ public class Viewport {
 		}
 	}
 
-	private int[] dither = {
-			14, 2, 16, 4,
-			0, 12, 2, 13,
-			16, 0, 13, 2,
-			3, 12, 6, 16
-	};
-
 	public void postProcess(Screen screen) {
 		int sky = getDataSource().getSkyColor();
 		int skyR = ((sky >> 16) & 0xFF) / 4;
 		int skyG = ((sky >> 8) & 0xFF) / 4;
 		int skyB = ((sky) & 0xFF) / 4;
 
-		double y0 = size.getHeight() / HORIZON_OFFSET;
 		for (int yp = 0; yp < size.getHeight(); ++yp) {
 			for (int xp = 0; xp < size.getWidth(); ++xp) {
-				if (yp < y0) continue;
-				double z = zBuffer[xp + yp * (int) size.getWidth()];
-				int br = 0xff - (int) ((z * z * z * 0.0001 - 10));
+				double z = zBuffer[xp + yp * (int)size.getWidth()];
+				int br = 0xff - (int)((z * z * z * 0.0001 - 10));
 				if (br < 0) br = 0;
 				if (br > 0xff) br = 0xff;
 				int color = screen.getPixel(xp, yp);
@@ -194,7 +245,6 @@ public class Viewport {
 				b = b * br / 255 + skyB * (0xFF - br) / 255;
 				if (b > 0xff) b = 0xff;
 				screen.setPixel(xp, yp, Dither.lookupColor(xp, yp, (r << 16) | (g << 8) | b));
-				//screen.setPixel(xp, yp, (r << 16) | (g << 8) | b);
 			}
 		}
 	}
