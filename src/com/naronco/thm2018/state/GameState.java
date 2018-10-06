@@ -72,6 +72,10 @@ public class GameState implements IState, IViewportDataSource {
 		return 0x0080ff;
 	}
 
+	public int getGrassFloorColor(double x, double y) {
+		return 0x6ABE30;
+	}
+
 	public int getBaseFloorColor(double x, double y) {
 		double stripeLength = 5.0;
 
@@ -81,7 +85,7 @@ public class GameState implements IState, IViewportDataSource {
 			boolean isStripe = (x < 0.4) && ((int) Math.floor(y / stripeLength) & 1) == 1;
 			return isStripe ? 0xffffff : 0x696A6A;
 		} else {
-			return 0x6ABE30;
+			return getGrassFloorColor(x, y);
 		}
 	}
 

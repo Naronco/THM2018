@@ -7,17 +7,18 @@ public class Sprite3D {
 	private Vector2d position;
 	private Sprite base;
 	private boolean lod;
-	private double lodScale;
+	private double lodStart, lodScale;
 	private int width, height;
 	private int textureX, textureY;
 	private int offsetX, offsetY;
 
-	public Sprite3D(Vector2d position, Sprite base, double lodScale, int offsetX, int offsetY) {
+	public Sprite3D(Vector2d position, Sprite base, double lodStart, double lodScale, int offsetX, int offsetY) {
 		this.position = position;
 		this.width = (int)base.getDimension().getWidth();
 		this.height = (int)base.getDimension().getHeight();
 		this.base = base;
 		this.lod = true;
+		this.lodStart = lodStart;
 		this.lodScale = lodScale;
 		this.offsetX = offsetX;
 		this.offsetY = offsetY;
@@ -56,6 +57,14 @@ public class Sprite3D {
 
 	public void setLod(boolean lod) {
 		this.lod = lod;
+	}
+
+	public double getLodStart() {
+		return lodStart;
+	}
+
+	public void setLodStart(double lodStart) {
+		this.lodStart = lodStart;
 	}
 
 	public double getLodScale() {
