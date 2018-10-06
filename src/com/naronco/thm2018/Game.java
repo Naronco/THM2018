@@ -17,7 +17,7 @@ public class Game extends Eggine implements IViewportDataSource {
 	private double crossingX = 0;
 	private double crossingY = 64;
 
-	private static final double TURN_TIME = 4.0;
+	private static final double TURN_TIME = 1.5;
 
 	private boolean animatingTurn = false;
 	private double animatingTurnTime = 0;
@@ -36,7 +36,12 @@ public class Game extends Eggine implements IViewportDataSource {
 		screen.fillScreen(0xF2F2F2);
 
 		viewport.render(screen);
-		viewport.renderSprite3D(screen, carPos.getX() - viewport.getCameraPosition().getX(), carPos.getY() - viewport.getCameraPosition().getY(), 0, 0, 94, 61, Sprites.car);
+		viewport.renderSpriteLOD(screen, 3, 50 - viewport.getCameraPosition().getY(), 1, 32, 32, Sprites.gulli, 0, 12);
+		int vibration = (int) Math.round(Math.sin(time * 5) * Math.cos(time * 3 + 10) * 0.5 + 0.5);
+		if (animatingTurn)
+			viewport.renderSprite3D(screen, carPos.getX() - viewport.getCameraPosition().getX(), carPos.getY() - viewport.getCameraPosition().getY(), 0, 0, 94, 61, Sprites.car, 0, -vibration);
+		else
+			viewport.renderSprite3D(screen, carPos.getX() - viewport.getCameraPosition().getX(), carPos.getY() - viewport.getCameraPosition().getY(), 94, 0, 60, 61, Sprites.car, 0, -vibration);
 	}
 
 	@Override
@@ -46,8 +51,15 @@ public class Game extends Eggine implements IViewportDataSource {
 			carPos.setY(carPos.getY() + delta * 50 / 3.6);
 		} else {
 			if (!animatingTurn) {
-				animatingTurn = true;
-				animatingTurnTime = 0;
+				if (animatingTurnTime > 0) {
+					carPos.setX(0);
+					carPos.setY(-100);
+					viewport.setRotation(0);
+					animatingTurnTime = 0;
+				} else {
+					animatingTurn = true;
+					animatingTurnTime = 0;
+				}
 			}
 		}
 
@@ -61,8 +73,10 @@ public class Game extends Eggine implements IViewportDataSource {
 
 			double angle = p * Math.PI * 0.5;
 
-			carPos.setX(-9 + Math.cos(angle) * 9);
-			carPos.setY(crossingY - 9 + Math.sin(angle) * 9);
+			double dist = 9 - Math.sin(p * Math.PI) * 5;
+
+			carPos.setX(-dist + Math.cos(angle) * dist);
+			carPos.setY(crossingY - dist + Math.sin(angle) * dist);
 
 			viewport.setRotation(-angle);
 		}
@@ -98,10 +112,10 @@ public class Game extends Eggine implements IViewportDataSource {
 
 		boolean isVerticalRoad = adx <= 4;
 		if (isVerticalRoad) {
-			boolean isStripe = (adx < 0.4) && ((int)Math.floor(ady / stripeLength) & 1) == 1;
+			boolean isStripe = (adx < 0.4) && ((int) Math.floor(ady / stripeLength) & 1) == 1;
 			return isStripe ? 0xffffff : 0x696A6A;
 		} else {
-			boolean isStripe = (ady < 0.4) && ((int)Math.floor(adx / stripeLength) & 1) == 1;
+			boolean isStripe = (ady < 0.4) && ((int) Math.floor(adx / stripeLength) & 1) == 1;
 			return isStripe ? 0xffffff : 0x696A6A;
 		}
 	}
