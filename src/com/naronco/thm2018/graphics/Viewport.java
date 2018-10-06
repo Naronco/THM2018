@@ -105,6 +105,13 @@ public class Viewport {
 			return;
 		screen.renderSprite((int) (projected.getX() - width / 2) + offsetX, (int) (projected.getY() - height) + offsetY, startX, startY, width, height, sprite);
 	}
+	
+	public void renderWall(Screen screen, Vector2d start, Vector2d end) {
+		Vector2d p1 = projectWorldToViewport(screen, start.getX(), start.getY());
+		Vector2d p2 = projectWorldToViewport(screen, end.getX(), end.getY());
+		if (p1 == null || p2 == null) return;
+		screen.setPixel((int)p1.getX(), (int)p1.getY(), 0xff00ff);
+	}
 
 	public void render(Screen screen) {
 		double x0 = screen.getDimension().getWidth() * 0.5;

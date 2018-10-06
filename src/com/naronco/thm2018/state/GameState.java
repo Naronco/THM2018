@@ -52,6 +52,7 @@ public class GameState implements IState, IViewportDataSource {
 			viewport.renderSprite3D(screen, getCarPos(), getCar().isLeft() ? 0 : (94 + 60), 0, 94, 61, Sprites.car, 0, -vibration);
 		else
 			viewport.renderSprite3D(screen, getCarPos(), 94, 0, 60, 61, Sprites.car, 0, -vibration);
+		//viewport.renderWall(screen, new Vector2d(-6, 20), new Vector2d(-6, 30));
 
 		viewport.postProcess(screen);
 	}
