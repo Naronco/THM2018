@@ -14,6 +14,8 @@ public class Sprite3D {
 
 	public Sprite3D(Vector2d position, Sprite base, double lodScale, int offsetX, int offsetY) {
 		this.position = position;
+		this.width = (int)base.getDimension().getWidth();
+		this.height = (int)base.getDimension().getHeight();
 		this.base = base;
 		this.lod = true;
 		this.lodScale = lodScale;

@@ -5,6 +5,9 @@ import com.deviotion.ld.eggine.math.Vector2d;
 public class PlayerCar {
 	private Vector2d position = new Vector2d(0, 0);
 	private boolean left, drifting;
+	
+	public void onHit(Obstacle obstacle) {
+	}
 
 	public Vector2d getPosition() {
 		return position;
@@ -12,6 +15,10 @@ public class PlayerCar {
 
 	public void setPosition(Vector2d position) {
 		this.position = position;
+	}
+	
+	public double getRadius() {
+		return 2.0;
 	}
 
 	public boolean isLeft() {

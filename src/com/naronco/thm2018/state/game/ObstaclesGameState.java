@@ -20,10 +20,11 @@ public class ObstaclesGameState implements IGameState {
 
 	private static final double TURN_SPEED = 3.5;
 
-	private List<Sprite3D> obstacles = new ArrayList<>();
+	private List<Obstacle> obstacles = new ArrayList<>();
 
 	public ObstaclesGameState(GameState game) {
 		this.game = game;
+		obstacles.add(new Obstacle(new Sprite3D(new Vector2d(2, 50), Sprites.gulli, 1.3, 0, 0), 1.0));
 	}
 
 	@Override
@@ -44,14 +45,22 @@ public class ObstaclesGameState implements IGameState {
 	@Override
 	public void render(Screen screen) {
 		Viewport viewport = game.getViewport();
-
-		viewport.renderSpriteLOD(screen, 2, 50, 1.3, 32, Sprites.gulli, 0, 0);
+		for (Obstacle obstacle : obstacles) {
+			viewport.renderSprite3D(screen, obstacle.getSprite());
+		}
 	}
 
 	@Override
 	public void update(double delta) {
 		time += delta;
 		game.getCar().drive(delta);
+		
+		for (Obstacle obstacle : obstacles) {
+			double distSquared = obstacle.getSprite().getPosition().subtract(game.getCarPos()).getLengthSquared();
+			if (distSquared < (game.getCar().getRadius() + obstacle.getRadius()) * (game.getCar().getRadius() + obstacle.getRadius())) {
+				game.getCar().onHit(obstacle);
+			}
+		}
 
 		if (game.getCar().getPosition().getY() > length)
 			game.transitionIntoNextState();
