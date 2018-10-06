@@ -15,9 +15,9 @@ public class Game extends Eggine {
 	private GameState game;
 
 	public Game() {
-		super(60, 60, new Window("InfinityJam", new Dimension2d(160, 120), 4));
+		super(60, 60, new Window("InfinityJam", new Dimension2d(160, 120), 1));
 
-		this.game = new GameState(getWindow().getDimension());
+		this.game = new GameState(getWindow().getDimension(), getKeyboard());
 
 		stateManager.setState(game);
 	}
