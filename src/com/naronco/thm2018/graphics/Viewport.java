@@ -101,26 +101,30 @@ public class Viewport {
 		Vector3d projected = projectWorldToViewport(screen, x, y);
 		if (projected == null)
 			return;
+		
 		int sx = (int) (projected.getX() - width / 2) + offsetX;
 		int sy = (int) (projected.getY() - height) + offsetY;
-		screen.renderSprite(sx, sy, startX, startY, width, height, sprite);
-		renderToZbuffer(sx, sy, startX, startY, width, height, sprite, projected.getZ());
-	}
-
-	private void renderToZbuffer(int sx, int sy, int tx, int ty, int tw, int th, Sprite sprite, double z) {
-		for (int y = 0; y < th; y++) {
-			for (int x = 0; x < tw; x++) {
-				if (sprite.getPixel(x + tx, y + ty) != sprite.getTransparentColor()) {
-					setZPixel(sx + x, sy + y, z);
-				}
+		
+		double z = projected.getZ();
+		
+		for (int yp = 0; yp < height; ++yp) {
+			int screenY = sy + yp;
+			if (screenY < 0 || screenY >= (int)screen.getDimension().getHeight()) continue;
+			
+			for (int xp = 0; xp < width; ++xp) {
+				int screenX = sx + xp;
+				if (screenX < 0 || screenX >= (int)screen.getDimension().getWidth()) continue;
+				
+				int color = sprite.getPixel(xp + startX, yp + startY);
+				if (color == sprite.getTransparentColor()) continue;
+				
+				int idx = screenX + screenY * (int)size.getWidth();
+				
+				if (zBuffer[idx] < z) continue;
+				zBuffer[idx] = z;
+				screen.setPixel(sx + xp, sy + yp, color);
 			}
 		}
-	}
-
-	private void setZPixel(int x, int y, double depth) {
-		if (x < 0 || y < 0 || x >= size.getWidth() || y >= size.getHeight())
-			return;
-		zBuffer[(int) (x + y * size.getWidth())] = depth;
 	}
 
 	public void renderWall(Screen screen, Vector2d start, Vector2d end, int color) {
