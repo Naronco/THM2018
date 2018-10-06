@@ -46,11 +46,13 @@ public class Viewport {
 			double y1 = projectWorldToViewport(screen, x, y - 2.5 * scale).getY();
 			double y2 = projectWorldToViewport(screen, x, y + 2.5 * scale).getY();
 
-			int factor = (int) Math.round(height / (y1 - y2));
-			width /= factor;
-			height /= factor;
-			offsetX /= factor;
-			offsetY /= factor;
+			int factor = (int) Math.pow(2, (int) Math.ceil(Math.log(height / (y1 - y2)) / Math.log(2)));
+			if (factor > 1) {
+				width /= factor;
+				height /= factor;
+				offsetX /= factor;
+				offsetY /= factor;
+			}
 		}
 
 		renderSprite3D(screen, x, y, width, 0, width, height, sprite, offsetX, offsetY);
