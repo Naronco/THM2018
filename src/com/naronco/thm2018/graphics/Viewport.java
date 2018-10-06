@@ -16,8 +16,8 @@ public class Viewport {
 
 	private double[] zBuffer;
 
-	private static final double HORIZON_OFFSET = 10.0;
-	private static final double CAMERA_HEIGHT = 6.5;
+	private static final double HORIZON_OFFSET = 6.0;
+	private static final double CAMERA_HEIGHT = 5;
 
 	public Viewport(Dimension2d size) {
 		this.size = size;
@@ -107,10 +107,10 @@ public class Viewport {
 	}
 
 	private int[] dither = {
-			16, 0, 16, 4,
-			0, 16, 2, 16,
-			16, 0, 16, 2,
-			3, 14, 4, 16
+			14, 2, 16, 4,
+			0, 12, 2, 13,
+			16, 0, 13, 2,
+			3, 12, 6, 16
 	};
 
 	public void postProcess(Screen screen) {
@@ -119,9 +119,9 @@ public class Viewport {
 			for (int xp = 0; xp < size.getWidth(); ++xp) {
 				if (yp < y0) continue;
 				double z = zBuffer[xp + yp * (int)size.getWidth()];
-				if (dither[(xp & 3) + ((yp & 3) << 2)] > 1 / (z * z) * 512 * 256) {
+				if (dither[(xp & 3) + ((yp & 3) << 2)] < (z * 0.7 - 22)) {
 					int color = screen.getPixel(xp, yp);
-					screen.setPixel(xp, yp, 0xCBDBFC);
+					screen.setPixel(xp, yp, 0xfffff);
 				}
 			}
 		}
