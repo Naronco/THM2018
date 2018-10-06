@@ -25,7 +25,7 @@ public class Game extends Eggine implements IViewportDataSource {
 	public Game() {
 		super(60, 60, new Window("InfinityJam", new Dimension2d(160, 120), 4));
 
-		this.viewport = new Viewport();
+		this.viewport = new Viewport(getWindow().getDimension());
 		viewport.setDataSource(this);
 	}
 
@@ -42,6 +42,7 @@ public class Game extends Eggine implements IViewportDataSource {
 			viewport.renderSprite3D(screen, carPos.getX() - viewport.getCameraPosition().getX(), carPos.getY() - viewport.getCameraPosition().getY(), 0, 0, 94, 61, Sprites.car, 0, -vibration);
 		else
 			viewport.renderSprite3D(screen, carPos.getX() - viewport.getCameraPosition().getX(), carPos.getY() - viewport.getCameraPosition().getY(), 94, 0, 60, 61, Sprites.car, 0, -vibration);
+		viewport.postProcess(screen);
 	}
 
 	@Override

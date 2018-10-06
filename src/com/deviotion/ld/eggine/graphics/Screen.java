@@ -43,6 +43,10 @@ public class Screen {
 		return this.pixels;
 	}
 
+	public int getPixel(int x, int y) {
+		return this.pixels[x + y * (int)dimension.getWidth()];
+	}
+
 	public void renderSprite(int x, int y, int startX, int startY, int endX,
 							 int endY, Sprite sprite) {
 		BufferedImage spriteImage = sprite.getBufferedImage();
