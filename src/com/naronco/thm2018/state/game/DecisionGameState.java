@@ -113,6 +113,7 @@ public class DecisionGameState implements IGameState {
 			game.getCarPos().setX((-dist + Math.cos(angle) * dist) * (animateLeft ? 1 : -1));
 			game.getCarPos().setY(crossingY - dist + Math.sin(angle) * dist);
 
+			game.getCar().setSpeed((1 - (1 - p) * (1 - p)) * 70);
 			game.getViewport().setRotation(animateLeft ? -angle : angle);
 
 			if (p >= 1.0) {
