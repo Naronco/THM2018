@@ -20,12 +20,12 @@ public class MazeGenerator {
 				if (line.trim().isEmpty())
 					ret.add(null);
 				else
-					ret.add(line.replace("ß", "ss").toUpperCase().trim());
+					ret.add(line.replace("ß", "ss").trim());
 			}
 			return ret;
 		} catch (IOException e) {
 			e.printStackTrace();
-			return Arrays.asList(null);
+			return Arrays.asList((String)null);
 		}
 	}
 
@@ -70,7 +70,7 @@ public class MazeGenerator {
 						numOpen++;
 				int insertInto = random.nextInt(numOpen);
 				for (int n = 0; n < targets.length; n++)
-					if (targets[n] == null && --insertInto == 0) {
+					if (targets[n] == null && insertInto-- == 0) {
 						targets[n] = new Way(to, random.nextLong(), generateStreetName());
 						break;
 					}

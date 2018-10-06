@@ -1,6 +1,5 @@
 package com.naronco.thm2018.state;
 
-import com.deviotion.ld.eggine.graphics.Font;
 import com.deviotion.ld.eggine.graphics.Screen;
 import com.deviotion.ld.eggine.input.Keyboard;
 import com.deviotion.ld.eggine.math.Dimension2d;
@@ -10,14 +9,14 @@ import com.naronco.thm2018.graphics.IViewportDataSource;
 import com.naronco.thm2018.graphics.Viewport;
 import com.naronco.thm2018.maze.Level;
 import com.naronco.thm2018.maze.MazeGenerator;
-import com.naronco.thm2018.maze.Point;
 import com.naronco.thm2018.maze.Way;
 import com.naronco.thm2018.state.game.DecisionGameState;
 import com.naronco.thm2018.state.game.IGameState;
 import com.naronco.thm2018.state.game.ObstaclesGameState;
 import com.naronco.thm2018.state.game.PlayerCar;
+import net.arikia.dev.drpc.DiscordRPC;
+import net.arikia.dev.drpc.DiscordRichPresence;
 
-import java.util.List;
 import java.util.Random;
 
 public class GameState implements IState, IViewportDataSource {
@@ -28,6 +27,8 @@ public class GameState implements IState, IViewportDataSource {
 
 	private DecisionGameState decisionState;
 	private ObstaclesGameState obstaclesState;
+
+	private boolean discordReady = true;
 
 	private Level level;
 
@@ -44,14 +45,25 @@ public class GameState implements IState, IViewportDataSource {
 		decisionState = new DecisionGameState(this);
 		obstaclesState = new ObstaclesGameState(this);
 
-		level = new MazeGenerator(new Random()).generate(10, 20);
+		level = new MazeGenerator(new Random()).generate(10, 15);
 		obstaclesState.preload(new Way(level.getPoint(), 0, "Ausfahrt"));
 
 		parts.setState(obstaclesState);
+
+		if (discordReady) {
+			DiscordRichPresence rich = new DiscordRichPresence.Builder("Cruising the Streets")
+					.setDetails("Entering the Highways")
+					.setBigImage("cruising", "Avoiding obstacles")
+					.build();
+			DiscordRPC.discordUpdatePresence(rich);
+		}
 	}
 
 	@Override
 	public void unload() {
+		if (discordReady) {
+			DiscordRPC.discordClearPresence();
+		}
 	}
 
 	@Override
@@ -68,7 +80,7 @@ public class GameState implements IState, IViewportDataSource {
 
 		viewport.postProcess(screen);
 
-		((IGameState)parts.getCurrentState()).render2D(screen);
+		((IGameState) parts.getCurrentState()).render2D(screen);
 	}
 
 	@Override
@@ -134,6 +146,9 @@ public class GameState implements IState, IViewportDataSource {
 		getViewport().setRotation(0);
 		if (parts.getCurrentState() == obstaclesState) {
 			if (level.getNextPoints() == null) {
+				if (discordReady) {
+					DiscordRPC.discordClearPresence();
+				}
 				throw new Error("Win!");
 			} else {
 				Way[] targets = level.getPoint().getTargets();
@@ -141,16 +156,40 @@ public class GameState implements IState, IViewportDataSource {
 				decisionState.setAhead(targets[1]);
 				decisionState.setRight(targets[2]);
 				parts.setState(decisionState);
+
+				if (discordReady) {
+					DiscordRichPresence.Builder rich = new DiscordRichPresence.Builder("Some Intersection")
+							.setDetails("Lost on the Streets")
+							.setBigImage("cruising", "Avoiding obstacles");
+					if (targets[0] != null && targets[1] != null && targets[2] != null) {
+						rich.setBigImage("choosing3", "3 Way Intersection");
+					} else {
+						rich.setBigImage("choosing", "2 Way Intersection");
+					}
+					DiscordRPC.discordUpdatePresence(rich.build());
+				}
 			}
 		} else {
 			Way chosen = decisionState.getChosen();
 			level.jump(chosen);
 			obstaclesState.preload(chosen);
 			parts.setState(obstaclesState);
+
+			if (discordReady) {
+				DiscordRichPresence rich = new DiscordRichPresence.Builder("Cruising the Streets")
+						.setDetails(chosen.getName())
+						.setBigImage("cruising", "Avoiding obstacles")
+						.build();
+				DiscordRPC.discordUpdatePresence(rich);
+			}
 		}
 	}
 
 	public Keyboard getKeyboard() {
 		return keyboard;
+	}
+
+	public void setDiscordReady(boolean discordReady) {
+		this.discordReady = discordReady;
 	}
 }
