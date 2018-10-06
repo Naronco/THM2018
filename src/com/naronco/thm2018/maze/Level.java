@@ -12,12 +12,14 @@ public class Level {
 	}
 
 	public List<Point> getNextPoints() {
-		List<Point> targets = points.get(index).getTargets();
-		if (targets.size() == 1) {
-			jump(targets.get(0));
+		Point point = points.get(index);
+		if (index == points.size() - 1)
+			return null;
+		if (!point.hasIntersection()) {
+			jump(point.getTargets()[0]);
 			return getNextPoints();
 		}
-		return targets;
+		return point.getIntersection();
 	}
 
 	public void jump(Point point) {
@@ -25,5 +27,9 @@ public class Level {
 		if (newIndex == -1)
 			throw new IllegalArgumentException("point not in points array");
 		index = newIndex;
+	}
+
+	public Point getPoint() {
+		return points.get(index);
 	}
 }

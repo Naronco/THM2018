@@ -8,10 +8,16 @@ import com.deviotion.ld.eggine.math.Vector2d;
 import com.naronco.thm2018.Sprites;
 import com.naronco.thm2018.graphics.IViewportDataSource;
 import com.naronco.thm2018.graphics.Viewport;
+import com.naronco.thm2018.maze.Level;
+import com.naronco.thm2018.maze.MazeGenerator;
+import com.naronco.thm2018.maze.Point;
 import com.naronco.thm2018.state.game.DecisionGameState;
 import com.naronco.thm2018.state.game.IGameState;
 import com.naronco.thm2018.state.game.ObstaclesGameState;
 import com.naronco.thm2018.state.game.PlayerCar;
+
+import java.util.List;
+import java.util.Random;
 
 public class GameState implements IState, IViewportDataSource {
 	private StateManager parts = new StateManager();
@@ -19,8 +25,10 @@ public class GameState implements IState, IViewportDataSource {
 	private Viewport viewport;
 	private Keyboard keyboard;
 
-	private IGameState decisionState;
-	private IGameState obstaclesState;
+	private DecisionGameState decisionState;
+	private ObstaclesGameState obstaclesState;
+
+	private Level level;
 
 	double time = 0;
 
@@ -34,6 +42,8 @@ public class GameState implements IState, IViewportDataSource {
 	public void load() {
 		decisionState = new DecisionGameState(this);
 		obstaclesState = new ObstaclesGameState(this);
+
+		level = new MazeGenerator(new Random()).generate(25, 25);
 
 		parts.setState(obstaclesState);
 	}
@@ -115,10 +125,21 @@ public class GameState implements IState, IViewportDataSource {
 	public void transitionIntoNextState() {
 		getCar().getPosition().setY(0);
 		getViewport().setRotation(0);
-		if (parts.getCurrentState() == obstaclesState)
-			parts.setState(decisionState);
-		else
+		if (parts.getCurrentState() == obstaclesState) {
+			List<Point> next = level.getNextPoints();
+			if (next == null) {
+				throw new Error("Win!");
+			} else {
+				Point[] targets = level.getPoint().getTargets();
+				decisionState.setLeft(targets[0]);
+				decisionState.setAhead(targets[1]);
+				decisionState.setRight(targets[2]);
+				parts.setState(decisionState);
+			}
+		} else {
+			level.jump(decisionState.getChosen());
 			parts.setState(obstaclesState);
+		}
 	}
 
 	public Keyboard getKeyboard() {
