@@ -85,7 +85,7 @@ public class Viewport {
 
 		for (int yp = 0; yp < screen.getDimension().getHeight(); ++yp) {
 			double theta = -(yp - y0) / screen.getDimension().getHeight();
-			double z = 4 / (theta - 0.01);
+			double z = CAMERA_HEIGHT / (theta - 0.01);
 
 			for (int xp = 0; xp < screen.getDimension().getWidth(); ++xp) {
 				double phi = (xp - x0) / screen.getDimension().getWidth();
@@ -119,7 +119,7 @@ public class Viewport {
 			for (int xp = 0; xp < size.getWidth(); ++xp) {
 				if (yp < y0) continue;
 				double z = zBuffer[xp + yp * (int)size.getWidth()];
-				if (dither[(xp & 3) + ((yp & 3) << 2)] > 1 / z * 512) {
+				if (dither[(xp & 3) + ((yp & 3) << 2)] > 1 / (z * z) * 512 * 256) {
 					int color = screen.getPixel(xp, yp);
 					screen.setPixel(xp, yp, 0xCBDBFC);
 				}
