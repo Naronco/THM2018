@@ -244,7 +244,7 @@ public class Viewport {
 	}
 
 	public void postProcess(Screen screen) {
-		int sky = 0xf0f0f0;
+		int sky = dataSource.getSkyColor();
 		int skyR = ((sky >> 16) & 0xFF);
 		int skyG = ((sky >> 8) & 0xFF);
 		int skyB = ((sky) & 0xFF);
