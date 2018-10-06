@@ -114,7 +114,7 @@ public class Viewport {
 		screen.renderSprite((int) (projected.getX() - width / 2) + offsetX, (int) (projected.getY() - height) + offsetY, startX, startY, width, height, sprite);
 	}
 	
-	public void renderWall(Screen screen, Vector2d start, Vector2d end) {
+	public void renderWall(Screen screen, Vector2d start, Vector2d end, int color) {
 		double centerX = size.getWidth() * 0.5;
 		double centerY = size.getHeight() * 1.0 / HORIZON_OFFSET;
 
@@ -177,8 +177,9 @@ public class Viewport {
 			for (int y = ypi1; y <= ypi2; ++y) {
 				if (y < 0 || y >= (int)size.getHeight()) continue;
 				
+				if (zBuffer[x + y * (int)size.getWidth()] < z) continue;
 				zBuffer[x + y * (int)size.getWidth()] = z;
-				screen.setPixel(x, y, 0xff00ff);
+				screen.setPixel(x, y, color);
 			}
 		}
 	}

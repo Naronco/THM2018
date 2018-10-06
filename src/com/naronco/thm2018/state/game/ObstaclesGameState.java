@@ -17,7 +17,9 @@ public class ObstaclesGameState implements IGameState {
 	private double time = 0;
 
 	private double length = 128;
-
+	private double houseLength = 32;
+	private double houseSpacing = 8;
+	
 	private static final double TURN_SPEED = 3.5;
 
 	private List<Obstacle> obstacles = new ArrayList<>();
@@ -50,6 +52,15 @@ public class ObstaclesGameState implements IGameState {
 	@Override
 	public void render(Screen screen) {
 		Viewport viewport = game.getViewport();
+		
+		for (double y = 0; y < length - houseLength; y += houseSpacing + houseLength) {
+			viewport.renderWall(screen, new Vector2d(-6, y), new Vector2d(-6, y + houseLength), 0xEEC39A);
+			viewport.renderWall(screen, new Vector2d(-12, y), new Vector2d(-6, y), 0xDF7126);
+			
+			viewport.renderWall(screen, new Vector2d(6, y + houseLength), new Vector2d(6, y), 0xEEC39A);
+			viewport.renderWall(screen, new Vector2d(6, y), new Vector2d(12, y), 0xDF7126);
+		}
+		
 		for (Obstacle obstacle : obstacles) {
 			viewport.renderSprite3D(screen, obstacle.getSprite());
 		}
