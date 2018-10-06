@@ -80,7 +80,7 @@ public class GameState implements IState, IViewportDataSource {
 			boolean isStripe = (x < 0.4) && ((int) Math.floor(y / stripeLength) & 1) == 1;
 			return isStripe ? 0xffffff : 0x696A6A;
 		} else {
-			return 0x00ff00;
+			return 0x6ABE30;
 		}
 	}
 

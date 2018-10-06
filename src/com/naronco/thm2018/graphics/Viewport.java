@@ -144,25 +144,31 @@ public class Viewport {
 	};
 
 	public void postProcess(Screen screen) {
+		int sky = getDataSource().getSkyColor();
+		int skyR = ((sky >> 16) & 0xFF) / 4;
+		int skyG = ((sky >> 8) & 0xFF) / 4;
+		int skyB = ((sky) & 0xFF) / 4;
+
 		double y0 = size.getHeight() / HORIZON_OFFSET;
 		for (int yp = 0; yp < size.getHeight(); ++yp) {
 			for (int xp = 0; xp < size.getWidth(); ++xp) {
 				if (yp < y0) continue;
 				double z = zBuffer[xp + yp * (int)size.getWidth()];
-				int br = 0xff - (int)((z * 1.2 - 22) * 0.5);
+				int br = 0xff - (int)((z * z * z * 0.0001 - 10));
 				if (br < 0) br = 0;
 				if (br > 0xff) br = 0xff;
 				int color = screen.getPixel(xp, yp);
 				int r = (color >> 16) & 0xff;
 				int g = (color >> 8) & 0xff;
 				int b = (color) & 0xff;
-				r = r * br / 255;
+				r = r * br / 255 + skyR * (0xFF - br) / 255;
 				if (r > 0xff) r = 0xff;
-				g = g * br / 255;
+				g = g * br / 255 + skyG * (0xFF - br) / 255;
 				if (g > 0xff) g = 0xff;
-				b = b * br / 255;
+				b = b * br / 255 + skyB * (0xFF - br) / 255;
 				if (b > 0xff) b = 0xff;
 				screen.setPixel(xp, yp, Dither.lookupColor(xp, yp, (r << 16) | (g << 8) | b));
+				//screen.setPixel(xp, yp, (r << 16) | (g << 8) | b);
 			}
 		}
 	}

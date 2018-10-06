@@ -92,7 +92,7 @@ public class DecisionGameState implements IGameState {
 
 		boolean isStreet = adx <= 4 || ady <= 4;
 		if (!isStreet) {
-			return 0x00ff00;
+			return game.getBaseFloorColor(x, y);
 		}
 
 		boolean isCrossing = adx <= 4 && ady <= 4;
