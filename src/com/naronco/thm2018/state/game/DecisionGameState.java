@@ -62,8 +62,13 @@ public class DecisionGameState implements IGameState {
 	public void update(double delta) {
 		time += delta;
 
-		if (game.getCarPos().getY() < crossingY - 9) {
-			game.getCar().drive(delta);
+		boolean moveForward = game.getCarPos().getY() < crossingY - 9;
+		
+		double speed = moveForward ? 70 : 0;
+		game.getCar().setSpeed(speed);
+		game.getCar().drive(delta);
+		
+		if (moveForward) {
 			game.getCar().fadeX(0, 0.5, delta);
 		} else if (choosing) {
 			if (game.getKeyboard().isPressed(KeyEvent.VK_LEFT) && hasLeft) {

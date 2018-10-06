@@ -5,6 +5,7 @@ import com.deviotion.ld.eggine.math.Vector2d;
 public class PlayerCar {
 	private Vector2d position = new Vector2d(0, 0);
 	private boolean left, drifting;
+	private double speed = 70;
 	
 	public void onHit(Obstacle obstacle) {
 	}
@@ -42,6 +43,14 @@ public class PlayerCar {
 	}
 
 	public void drive(double delta) {
-		getPosition().setY(getPosition().getY() + delta * 70 / 3.6);
+		getPosition().setY(getPosition().getY() + delta * speed / 3.6);
+	}
+	
+	public double getSpeed() {
+		return speed;
+	}
+	
+	public void setSpeed(double speed) {
+		this.speed = speed;
 	}
 }

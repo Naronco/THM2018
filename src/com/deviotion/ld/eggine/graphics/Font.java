@@ -7,7 +7,6 @@ import java.io.File;
 
 public class Font {
     public static Font standard = new Font(new File("res/font.png"));
-    public static Font white = new Font(new File("res/fontwhite.png"));
 
     private String characterIndex = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,:;!? 'ÄÖÜ>\"-()/";
     private SpriteSheet spriteSheet;

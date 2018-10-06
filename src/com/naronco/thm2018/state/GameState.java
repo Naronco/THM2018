@@ -1,5 +1,6 @@
 package com.naronco.thm2018.state;
 
+import com.deviotion.ld.eggine.graphics.Font;
 import com.deviotion.ld.eggine.graphics.Screen;
 import com.deviotion.ld.eggine.input.Keyboard;
 import com.deviotion.ld.eggine.math.Dimension2d;
@@ -54,6 +55,8 @@ public class GameState implements IState, IViewportDataSource {
 			viewport.renderSprite3D(screen, getCarPos(), 94, 0, 60, 61, Sprites.car, 0, -vibration);
 
 		viewport.postProcess(screen);
+		
+		screen.renderText(4, (int)screen.getDimension().getHeight() - 1 - 12, Font.standard, (int)car.getSpeed() + " km/h");
 	}
 
 	@Override
