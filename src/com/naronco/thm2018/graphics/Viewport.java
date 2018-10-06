@@ -39,6 +39,8 @@ public class Viewport {
 		double xs = input.getX() * cos + input.getY() * -sin;
 		double ys = input.getX() * sin + input.getY() * cos;
 
+		if (ys < 0.1) return null;
+		
 		double theta = CAMERA_HEIGHT / ys;
 		double phi = xs / ys;
 
@@ -58,8 +60,13 @@ public class Viewport {
 
 	public void renderSpriteLOD(Screen screen, double x, double y, double scale, int size, Sprite sprite, int offsetX, int offsetY) {
 		if (y > 2.5 * scale) {
-			double y1 = projectWorldToViewport(screen, x, y - 2.5 * scale).getY();
-			double y2 = projectWorldToViewport(screen, x, y + 2.5 * scale).getY();
+			Vector2d p1 = projectWorldToViewport(screen, x, y - 2.5 * scale);
+			Vector2d p2 = projectWorldToViewport(screen, x, y + 2.5 * scale);
+			
+			if (p1 == null || p2 == null) return;
+			
+			double y1 = p1.getY();
+			double y2 = p2.getY();
 
 			int factor = (int) Math.pow(2, (int) Math.ceil(Math.log(size / (y1 - y2)) / Math.log(2)));
 			if (factor > 1) {
@@ -94,7 +101,8 @@ public class Viewport {
 
 	public void renderSprite3D(Screen screen, double x, double y, int startX, int startY, int width, int height, Sprite sprite, int offsetX, int offsetY) {
 		Vector2d projected = projectWorldToViewport(screen, x, y);
-
+		if (projected == null)
+			return;
 		screen.renderSprite((int) (projected.getX() - width / 2) + offsetX, (int) (projected.getY() - height) + offsetY, startX, startY, width, height, sprite);
 	}
 
