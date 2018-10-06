@@ -27,13 +27,15 @@ public class Viewport {
 		this.zBuffer = new double[(int) size.getWidth() * (int) size.getHeight()];
 	}
 
-	public static Vector2d projectWorldToViewport(double width, double height, Vector2d input, double rotation) {
+	public static Vector2d projectWorldToViewport(double width, double height, Vector2d input, Vector2d cameraPosition, double rotation) {
 		double x0 = width * 0.5;
 		double y0 = height * 1.0 / HORIZON_OFFSET;
 
 		double sin = Math.sin(rotation);
 		double cos = Math.cos(rotation);
-
+		
+		input = input.subtract(cameraPosition);
+		
 		double xs = input.getX() * cos + input.getY() * -sin;
 		double ys = input.getX() * sin + input.getY() * cos;
 
@@ -47,7 +49,7 @@ public class Viewport {
 	}
 
 	public Vector2d projectWorldToViewport(Screen screen, double x, double y) {
-		return projectWorldToViewport(screen.getDimension().getWidth(), screen.getDimension().getHeight(), new Vector2d(x, y), rotation);
+		return projectWorldToViewport(screen.getDimension().getWidth(), screen.getDimension().getHeight(), new Vector2d(x, y), cameraPosition, rotation);
 	}
 
 	public void renderSpriteLOD(Screen screen, Vector2d position, double scale, int size, Sprite sprite, int offsetX, int offsetY) {
@@ -55,8 +57,6 @@ public class Viewport {
 	}
 
 	public void renderSpriteLOD(Screen screen, double x, double y, double scale, int size, Sprite sprite, int offsetX, int offsetY) {
-		x -= getCameraPosition().getX();
-		y -= getCameraPosition().getY();
 		if (y > 2.5 * scale) {
 			double y1 = projectWorldToViewport(screen, x, y - 2.5 * scale).getY();
 			double y2 = projectWorldToViewport(screen, x, y + 2.5 * scale).getY();

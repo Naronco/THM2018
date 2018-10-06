@@ -49,9 +49,9 @@ public class GameState implements IState, IViewportDataSource {
 
 		int vibration = (int) Math.round(Math.sin(time * 5) * Math.cos(time * 3 + 10) * 0.5 + 0.5);
 		if (getCar().isDrifting())
-			viewport.renderSprite3D(screen, getCarPos().subtract(viewport.getCameraPosition()), getCar().isLeft() ? 0 : (94 + 60), 0, 94, 61, Sprites.car, 0, -vibration);
+			viewport.renderSprite3D(screen, getCarPos(), getCar().isLeft() ? 0 : (94 + 60), 0, 94, 61, Sprites.car, 0, -vibration);
 		else
-			viewport.renderSprite3D(screen, getCarPos().subtract(viewport.getCameraPosition()), 94, 0, 60, 61, Sprites.car, 0, -vibration);
+			viewport.renderSprite3D(screen, getCarPos(), 94, 0, 60, 61, Sprites.car, 0, -vibration);
 
 		viewport.postProcess(screen);
 	}
