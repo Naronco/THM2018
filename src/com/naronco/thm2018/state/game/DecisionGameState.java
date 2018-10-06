@@ -141,7 +141,7 @@ public class DecisionGameState implements IGameState {
 
 		double stripeLength = 5.0;
 
-		boolean isStreet = (dy < 4 && adx <= 4) || (adx <= 4 && ahead != null) || (ady <= 4 && dy > 0 && left != null) || (ady <= 4 && dy < 0 && right != null);
+		boolean isStreet = (dy < 4 && adx <= 4) || (adx <= 4 && ahead != null) || (ady <= 4 && dx > 0 && left != null) || (ady <= 4 && dx < 0 && right != null);
 		if (!isStreet) {
 			return game.getGrassFloorColor(x, y);
 		}
