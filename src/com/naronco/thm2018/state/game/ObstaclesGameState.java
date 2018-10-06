@@ -16,7 +16,7 @@ public class ObstaclesGameState implements IGameState {
 	private GameState game;
 	private double time = 0;
 
-	private double length = 64;
+	private double length = 128;
 
 	private static final double TURN_SPEED = 3.5;
 
@@ -35,7 +35,7 @@ public class ObstaclesGameState implements IGameState {
 	public void load() {
 		game.getCar().setPosition(new Vector2d(0, 0));
 		
-		double y = 10.0;
+		double y = 30.0;
 		while (y < length) {
 			obstacles.add(new Obstacle(new Sprite3D(new Vector2d((Math.random() - 0.5) * 8.0, y), Sprites.gulli, 1.3, 0, 0), 1.0));
 			y += 10.0 + Math.random() * 10.0;
