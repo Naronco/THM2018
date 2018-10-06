@@ -122,7 +122,7 @@ public class Viewport {
 				} else {
 					color = dataSource.getFloorColor(xs, -zs);
 				}
-				screen.setPixel(xp, yp, Dither.lookupColor(xp, yp, color));
+				screen.setPixel(xp, yp, color);
 				zBuffer[xp + yp * (int) size.getWidth()] = Math.sqrt(z * z + x * x);
 			}
 		}
@@ -141,10 +141,20 @@ public class Viewport {
 			for (int xp = 0; xp < size.getWidth(); ++xp) {
 				if (yp < y0) continue;
 				double z = zBuffer[xp + yp * (int)size.getWidth()];
-				if (dither[(xp & 3) + ((yp & 3) << 2)] < (z * 0.7 - 22)) {
-					int color = screen.getPixel(xp, yp);
-					screen.setPixel(xp, yp, 0xfffff);
-				}
+				int br = 0xff - (int)((z * 1.2 - 22) * 0.5);
+				if (br < 0) br = 0;
+				if (br > 0xff) br = 0xff;
+				int color = screen.getPixel(xp, yp);
+				int r = (color >> 16) & 0xff;
+				int g = (color >> 8) & 0xff;
+				int b = (color) & 0xff;
+				r = r * br / 255;
+				if (r > 0xff) r = 0xff;
+				g = g * br / 255;
+				if (g > 0xff) g = 0xff;
+				b = b * br / 255;
+				if (b > 0xff) b = 0xff;
+				screen.setPixel(xp, yp, Dither.lookupColor(xp, yp, (r << 16) | (g << 8) | b));
 			}
 		}
 	}

@@ -224,7 +224,7 @@ public class Screen {
 	public void setPixel(int x, int y, int color) {
 		if (x >= 0 && y >= 0 && x < this.dimension.getWidth() && y < this
 				.dimension.getHeight()) {
-			this.pixels[x + y * (int) this.dimension.getWidth()] = Dither.lookupColor(x, y, color);
+			this.pixels[x + y * (int) this.dimension.getWidth()] = color;
 		}
 	}
 

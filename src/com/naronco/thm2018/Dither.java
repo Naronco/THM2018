@@ -35,23 +35,60 @@ public class Dither {
             0x8F974A,
             0x8A6F30
     };
-
-    public static int lookupColor(int x, int y, int color) {
+    
+    private static int colorDistance(int col0, int col1) {
+        int r0 = (col0 >> 16) & 0xFF;
+        int g0 = (col0 >> 8) & 0xFF;
+        int b0 = (col0) & 0xFF;
+        int r1 = (col1 >> 16) & 0xFF;
+        int g1 = (col1 >> 8) & 0xFF;
+        int b1 = (col1) & 0xFF;
+        return Math.abs(r0 - r1) + Math.abs(g0 - g1) + Math.abs(b0 - b1);
+    }
+    
+    private static long lookupColors(int color) {
         int r = (color >> 16) & 0xFF;
         int g = (color >> 8) & 0xFF;
         int b = (color) & 0xFF;
         int closest = 0;
         int distance = 0xFFFFFF;
+        int secondClosest = 0;
         for (int other : palette) {
             int or = (other >> 16) & 0xFF;
             int og = (other >> 8) & 0xFF;
             int ob = (other) & 0xFF;
             int odist = Math.abs(r - or) + Math.abs(g - og) + Math.abs(ob - b);
             if (odist < distance) {
+            	secondClosest = closest;
                 closest = other;
                 distance = odist;
             }
         }
-        return closest;
+        return (((long)secondClosest) << 32l) | (long)closest;
+    }
+    
+	private static int[] dither = {
+			14, 2, 16, 4,
+			0, 12, 2, 13,
+			16, 0, 13, 2,
+			3, 12, 6, 16
+	};
+	
+	private static int rollDither(int dither, int x) {
+		int ret = dither << (x & 3);
+		int left = (ret >> 4) & ~(0xFF << x);
+		return (ret | left) % 0xf;
+	}
+
+    public static int lookupColor(int x, int y, int color) {
+    	long colors = lookupColors(color);
+    	int closest = (int)(colors & 0xFFFFFFl);
+    	int secondClosest = (int)(colors >>> 32);
+    	int dither = (int)(colorDistance(closest, color) / (double)0x1ff * 16) % 0xF;
+    	if (rollDither(dither, x) == 0) {
+    		return closest;
+    	} else {
+    		return secondClosest;
+    	}
     }
 }
