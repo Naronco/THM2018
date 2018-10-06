@@ -77,7 +77,7 @@ public class Viewport {
 
 		for (int yp = 0; yp < screen.getDimension().getHeight(); ++yp) {
 			double theta = -(yp - y0) / screen.getDimension().getHeight();
-			double z = 4 / (theta - 0.01);
+			double z = CAMERA_HEIGHT / (theta - 0.01);
 
 			for (int xp = 0; xp < screen.getDimension().getWidth(); ++xp) {
 				double phi = (xp - x0) / screen.getDimension().getWidth();
