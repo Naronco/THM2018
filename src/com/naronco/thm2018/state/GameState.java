@@ -1,28 +1,40 @@
 package com.naronco.thm2018.state;
 
 import com.deviotion.ld.eggine.graphics.Screen;
+import com.deviotion.ld.eggine.input.Keyboard;
 import com.deviotion.ld.eggine.math.Dimension2d;
 import com.deviotion.ld.eggine.math.Vector2d;
 import com.naronco.thm2018.Sprites;
 import com.naronco.thm2018.graphics.IViewportDataSource;
 import com.naronco.thm2018.graphics.Viewport;
+import com.naronco.thm2018.state.game.DecisionGameState;
+import com.naronco.thm2018.state.game.IGameState;
+import com.naronco.thm2018.state.game.ObstaclesGameState;
+import com.naronco.thm2018.state.game.PlayerCar;
 
 public class GameState implements IState, IViewportDataSource {
-	StateManager parts = new StateManager();
+	private StateManager parts = new StateManager();
+	private PlayerCar car = new PlayerCar();
 	private Viewport viewport;
+	private Keyboard keyboard;
 
-	private Vector2d carPos = new Vector2d(0, 0);
+	private IGameState decisionState;
+	private IGameState obstaclesState;
 
 	double time = 0;
 
-	public GameState(Dimension2d size) {
+	public GameState(Dimension2d size, Keyboard keyboard) {
 		this.viewport = new Viewport(size);
+		this.keyboard = keyboard;
 		viewport.setDataSource(this);
 	}
 
 	@Override
 	public void load() {
-		parts.setState(new DecisionGameState(this));
+		decisionState = new DecisionGameState(this);
+		obstaclesState = new ObstaclesGameState(this);
+
+		parts.setState(obstaclesState);
 	}
 
 	@Override
@@ -35,6 +47,12 @@ public class GameState implements IState, IViewportDataSource {
 
 		parts.render(screen);
 
+		int vibration = (int) Math.round(Math.sin(time * 5) * Math.cos(time * 3 + 10) * 0.5 + 0.5);
+		if (getCar().isDrifting())
+			viewport.renderSprite3D(screen, getCarPos().subtract(viewport.getCameraPosition()), getCar().isLeft() ? 0 : (94 + 60), 0, 94, 61, Sprites.car, 0, -vibration);
+		else
+			viewport.renderSprite3D(screen, getCarPos().subtract(viewport.getCameraPosition()), 94, 0, 60, 61, Sprites.car, 0, -vibration);
+
 		viewport.postProcess(screen);
 	}
 
@@ -44,7 +62,7 @@ public class GameState implements IState, IViewportDataSource {
 
 		parts.update(delta);
 
-		Vector2d camPos = carPos.add(new Vector2d(Math.sin(-viewport.getRotation()), -Math.cos(-viewport.getRotation())).multiply(7));
+		Vector2d camPos = getCar().getPosition().add(new Vector2d(Math.sin(-viewport.getRotation()), -Math.cos(-viewport.getRotation())).multiply(7));
 		viewport.setCameraPosition(camPos);
 	}
 
@@ -55,6 +73,8 @@ public class GameState implements IState, IViewportDataSource {
 
 	public int getBaseFloorColor(double x, double y) {
 		double stripeLength = 5.0;
+
+		x = Math.abs(x);
 
 		if (x <= 4) {
 			boolean isStripe = (x < 0.4) && ((int) Math.floor(y / stripeLength) & 1) == 1;
@@ -74,10 +94,27 @@ public class GameState implements IState, IViewportDataSource {
 	}
 
 	public Vector2d getCarPos() {
-		return carPos;
+		return getCar().getPosition();
 	}
 
 	public void setCarPos(Vector2d carPos) {
-		this.carPos = carPos;
+		getCar().setPosition(carPos);
+	}
+
+	public PlayerCar getCar() {
+		return car;
+	}
+
+	public void transitionIntoNextState() {
+		getCar().getPosition().setY(0);
+		getViewport().setRotation(0);
+		if (parts.getCurrentState() == obstaclesState)
+			parts.setState(decisionState);
+		else
+			parts.setState(obstaclesState);
+	}
+
+	public Keyboard getKeyboard() {
+		return keyboard;
 	}
 }

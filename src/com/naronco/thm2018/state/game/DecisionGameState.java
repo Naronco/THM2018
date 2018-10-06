@@ -1,13 +1,14 @@
-package com.naronco.thm2018.state;
+package com.naronco.thm2018.state.game;
 
 import com.deviotion.ld.eggine.graphics.Screen;
 import com.deviotion.ld.eggine.math.Vector2d;
 import com.naronco.thm2018.Sprites;
 import com.naronco.thm2018.graphics.Viewport;
+import com.naronco.thm2018.state.GameState;
 
 public class DecisionGameState implements IGameState {
 	private double crossingX = 0;
-	private double crossingY = 64;
+	private double crossingY = 80;
 
 	private static final double TURN_TIME = 1.5;
 
@@ -24,7 +25,6 @@ public class DecisionGameState implements IGameState {
 
 	@Override
 	public void load() {
-
 	}
 
 	@Override
@@ -37,13 +37,8 @@ public class DecisionGameState implements IGameState {
 		final Viewport viewport = game.getViewport();
 		final Vector2d carPos = game.getCarPos();
 
-		viewport.renderSpriteLOD(screen, 3, 50 - viewport.getCameraPosition().getY(), 1, 32, 32, Sprites.gulli, 0, 8);
-
-		int vibration = (int) Math.round(Math.sin(time * 5) * Math.cos(time * 3 + 10) * 0.5 + 0.5);
-		if (animatingTurn)
-			viewport.renderSprite3D(screen, carPos.getX() - viewport.getCameraPosition().getX(), carPos.getY() - viewport.getCameraPosition().getY(), 0, 0, 94, 61, Sprites.car, 0, -vibration);
-		else
-			viewport.renderSprite3D(screen, carPos.getX() - viewport.getCameraPosition().getX(), carPos.getY() - viewport.getCameraPosition().getY(), 94, 0, 60, 61, Sprites.car, 0, -vibration);
+		game.getCar().setDrifting(animatingTurn);
+		game.getCar().setLeft(true);
 	}
 
 	@Override
@@ -51,13 +46,11 @@ public class DecisionGameState implements IGameState {
 		time += delta;
 
 		if (game.getCarPos().getY() < crossingY - 9) {
-			game.getCarPos().setY(game.getCarPos().getY() + delta * 50 / 3.6);
+			game.getCar().drive(delta);
 		} else {
 			if (!animatingTurn) {
 				if (animatingTurnTime > 0) {
-					game.getCarPos().setX(0);
-					game.getCarPos().setY(-100);
-					game.getViewport().setRotation(0);
+					game.transitionIntoNextState();
 					animatingTurnTime = 0;
 				} else {
 					animatingTurn = true;
@@ -82,6 +75,8 @@ public class DecisionGameState implements IGameState {
 			game.getCarPos().setY(crossingY - dist + Math.sin(angle) * dist);
 
 			game.getViewport().setRotation(-angle);
+		} else {
+			game.getCar().fadeX(0, 0.5, delta);
 		}
 	}
 
