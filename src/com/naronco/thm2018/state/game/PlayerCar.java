@@ -42,6 +42,6 @@ public class PlayerCar {
 	}
 
 	public void drive(double delta) {
-		getPosition().setY(getPosition().getY() + delta * 50 / 3.6);
+		getPosition().setY(getPosition().getY() + delta * 70 / 3.6);
 	}
 }

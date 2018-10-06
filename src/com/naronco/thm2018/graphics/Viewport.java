@@ -4,6 +4,7 @@ import com.deviotion.ld.eggine.graphics.Screen;
 import com.deviotion.ld.eggine.graphics.Sprite;
 import com.deviotion.ld.eggine.math.Dimension2d;
 import com.deviotion.ld.eggine.math.Vector2d;
+import com.deviotion.ld.eggine.math.Vector3d;
 import com.naronco.thm2018.Dither;
 import com.naronco.thm2018.Sprite3D;
 
@@ -27,64 +28,53 @@ public class Viewport {
 		this.zBuffer = new double[(int) size.getWidth() * (int) size.getHeight()];
 	}
 
-	public static Vector2d projectWorldToViewport(double width, double height, Vector2d input, double z, Vector2d cameraPosition, double rotation) {
+	public static Vector3d projectWorldToViewport(double width, double height, Vector2d input, Vector2d cameraPosition, double rotation) {
 		double x0 = width * 0.5;
 		double y0 = height * 1.0 / HORIZON_OFFSET;
 
 		double sin = Math.sin(rotation);
 		double cos = Math.cos(rotation);
-		
+
 		input = input.subtract(cameraPosition);
-		
+
 		double xs = input.getX() * cos + input.getY() * -sin;
 		double ys = input.getX() * sin + input.getY() * cos;
 
 		if (ys < 0.1) return null;
-		
-		double theta = -z / ys;
+		double theta = CAMERA_HEIGHT / ys;
 		double phi = xs / ys;
 
 		double xp = phi * width + x0;
 		double yp = theta * height + y0;
 
-		return new Vector2d(xp, yp);
+		return new Vector3d(xp, yp, ys);
 	}
 
-	public static Vector2d projectWorldToViewport(double width, double height, Vector2d input, Vector2d cameraPosition, double rotation) {
-		return projectWorldToViewport(width, height, input, -CAMERA_HEIGHT, cameraPosition, rotation);
-	}
-
-	public Vector2d projectWorldToViewport(Screen screen, double x, double y, double z) {
-		return projectWorldToViewport(screen.getDimension().getWidth(), screen.getDimension().getHeight(), new Vector2d(x, y), z, cameraPosition, rotation);
-	}
-
-	public Vector2d projectWorldToViewport(Screen screen, double x, double y) {
+	public Vector3d projectWorldToViewport(Screen screen, double x, double y) {
 		return projectWorldToViewport(screen.getDimension().getWidth(), screen.getDimension().getHeight(), new Vector2d(x, y), cameraPosition, rotation);
 	}
 
-	public void renderSpriteLOD(Screen screen, Vector2d position, double scale, int size, Sprite sprite, int offsetX, int offsetY) {
-		renderSpriteLOD(screen, position.getX(), position.getY(), scale, size, sprite, offsetX, offsetY);
+	public void renderSpriteLOD(Screen screen, Vector2d position, double start, double scale, int size, Sprite sprite, int offsetX, int offsetY) {
+		renderSpriteLOD(screen, position.getX(), position.getY(), start, scale, size, sprite, offsetX, offsetY);
 	}
 
-	public void renderSpriteLOD(Screen screen, double x, double y, double scale, int size, Sprite sprite, int offsetX, int offsetY) {
-		if (y > 2.5 * scale) {
-			Vector2d p1 = projectWorldToViewport(screen, x, y - 2.5 * scale);
-			Vector2d p2 = projectWorldToViewport(screen, x, y + 2.5 * scale);
-			
-			if (p1 == null || p2 == null) return;
-			
-			double y1 = p1.getY();
-			double y2 = p2.getY();
+	public void renderSpriteLOD(Screen screen, double x, double y, double start, double scale, int size, Sprite sprite, int offsetX, int offsetY) {
+		int factor;
+		double ty = y - cameraPosition.getY() - start;
+		if (ty < 1)
+			factor = 1;
+		else
+			factor = (int) Math.pow(2, (int) (Math.log(ty / scale) / Math.log(2) + 1));
 
-			int factor = (int) Math.pow(2, (int) Math.ceil(Math.log(size / (y1 - y2)) / Math.log(2)));
-			if (factor > 1) {
-				size /= factor;
-				offsetX /= factor;
-				offsetY /= factor;
-			}
+		if (factor > 1) {
+			size /= factor;
+			offsetX /= factor;
+			offsetY /= factor;
 		}
 
-		renderSprite3D(screen, x, y, size, 0, size, size, sprite, offsetX, offsetY);
+		if (size > 0) {
+			renderSprite3D(screen, x, y, size, 0, size, size, sprite, offsetX, offsetY);
+		}
 	}
 
 	public void renderSprite3D(Screen screen, Vector2d position, int startX, int startY, int width, int height, Sprite sprite) {
@@ -101,19 +91,38 @@ public class Viewport {
 
 	public void renderSprite3D(Screen screen, Sprite3D sprite) {
 		if (sprite.isLod()) {
-			renderSpriteLOD(screen, sprite.getPosition(), sprite.getLodScale(), sprite.getHeight(), sprite.getBase(), sprite.getOffsetX(), sprite.getOffsetY());
+			renderSpriteLOD(screen, sprite.getPosition(), sprite.getLodStart(), sprite.getLodScale(), sprite.getHeight(), sprite.getBase(), sprite.getOffsetX(), sprite.getOffsetY());
 		} else {
 			renderSprite3D(screen, sprite.getPosition(), sprite.getTextureX(), sprite.getTextureY(), sprite.getWidth(), sprite.getHeight(), sprite.getBase(), sprite.getOffsetX(), sprite.getOffsetY());
 		}
 	}
 
 	public void renderSprite3D(Screen screen, double x, double y, int startX, int startY, int width, int height, Sprite sprite, int offsetX, int offsetY) {
-		Vector2d projected = projectWorldToViewport(screen, x, y);
+		Vector3d projected = projectWorldToViewport(screen, x, y);
 		if (projected == null)
 			return;
-		screen.renderSprite((int) (projected.getX() - width / 2) + offsetX, (int) (projected.getY() - height) + offsetY, startX, startY, width, height, sprite);
+		int sx = (int) (projected.getX() - width / 2) + offsetX;
+		int sy = (int) (projected.getY() - height) + offsetY;
+		screen.renderSprite(sx, sy, startX, startY, width, height, sprite);
+		renderToZbuffer(sx, sy, startX, startY, width, height, sprite, projected.getZ());
 	}
-	
+
+	private void renderToZbuffer(int sx, int sy, int tx, int ty, int tw, int th, Sprite sprite, double z) {
+		for (int y = 0; y < th; y++) {
+			for (int x = 0; x < tw; x++) {
+				if (sprite.getPixel(x + tx, y + ty) != sprite.getTransparentColor()) {
+					setZPixel(sx + x, sy + y, z);
+				}
+			}
+		}
+	}
+
+	private void setZPixel(int x, int y, double depth) {
+		if (x < 0 || y < 0 || x >= size.getWidth() || y >= size.getHeight())
+			return;
+		zBuffer[(int) (x + y * size.getWidth())] = depth;
+	}
+
 	public void renderWall(Screen screen, Vector2d start, Vector2d end, int color) {
 		double centerX = size.getWidth() * 0.5;
 		double centerY = size.getHeight() * 1.0 / HORIZON_OFFSET;

@@ -39,7 +39,7 @@ public class ObstaclesGameState implements IGameState {
 		
 		double y = 30.0;
 		while (y < length) {
-			obstacles.add(new Obstacle(new Sprite3D(new Vector2d((Math.random() - 0.5) * 8.0, y), Sprites.gulli, 1.3, 0, 0), 1.0));
+			obstacles.add(new Obstacle(new Sprite3D(new Vector2d((Math.random() - 0.5) * 8.0, y), Sprites.gulli, 10, 5, 0, 0), 1.0));
 			y += 10.0 + Math.random() * 10.0;
 		}
 	}
