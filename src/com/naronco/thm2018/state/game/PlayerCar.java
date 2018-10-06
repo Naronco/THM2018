@@ -8,6 +8,7 @@ public class PlayerCar {
 	private double speed = 70;
 	
 	public void onHit(Obstacle obstacle) {
+		//throw new Error("Crash");
 	}
 
 	public Vector2d getPosition() {
@@ -19,7 +20,7 @@ public class PlayerCar {
 	}
 	
 	public double getRadius() {
-		return 2.0;
+		return 1.0;
 	}
 
 	public boolean isLeft() {

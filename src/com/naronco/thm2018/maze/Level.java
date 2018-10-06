@@ -11,19 +11,19 @@ public class Level {
 		this.index = 0;
 	}
 
-	public List<Point> getNextPoints() {
+	public List<Way> getNextPoints() {
 		Point point = points.get(index);
 		if (index == points.size() - 1)
 			return null;
 		if (!point.hasIntersection()) {
-			jump(point.getTargets()[0]);
+			jump(point.getFirst());
 			return getNextPoints();
 		}
 		return point.getIntersection();
 	}
 
-	public void jump(Point point) {
-		int newIndex = points.indexOf(point);
+	public void jump(Way point) {
+		int newIndex = points.indexOf(point.getTarget());
 		if (newIndex == -1)
 			throw new IllegalArgumentException("point not in points array");
 		index = newIndex;

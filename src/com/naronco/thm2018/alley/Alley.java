@@ -28,4 +28,8 @@ public class Alley {
 		}
 		return -1;
 	}
+
+	public void clear() {
+		objects.clear();
+	}
 }

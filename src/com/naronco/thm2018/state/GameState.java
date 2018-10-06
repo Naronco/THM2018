@@ -11,6 +11,7 @@ import com.naronco.thm2018.graphics.Viewport;
 import com.naronco.thm2018.maze.Level;
 import com.naronco.thm2018.maze.MazeGenerator;
 import com.naronco.thm2018.maze.Point;
+import com.naronco.thm2018.maze.Way;
 import com.naronco.thm2018.state.game.DecisionGameState;
 import com.naronco.thm2018.state.game.IGameState;
 import com.naronco.thm2018.state.game.ObstaclesGameState;
@@ -43,7 +44,8 @@ public class GameState implements IState, IViewportDataSource {
 		decisionState = new DecisionGameState(this);
 		obstaclesState = new ObstaclesGameState(this);
 
-		level = new MazeGenerator(new Random()).generate(25, 25);
+		level = new MazeGenerator(new Random()).generate(10, 20);
+		obstaclesState.preload(new Way(level.getPoint(), 0, "Ausfahrt"));
 
 		parts.setState(obstaclesState);
 	}
@@ -65,8 +67,8 @@ public class GameState implements IState, IViewportDataSource {
 			viewport.renderSprite3D(screen, getCarPos(), 94, 0, 60, 61, Sprites.car, 0, -vibration);
 
 		viewport.postProcess(screen);
-		
-		screen.renderText(4, (int)screen.getDimension().getHeight() - 1 - 12, Font.standard, (int)car.getSpeed() + " km/h");
+
+		((IGameState)parts.getCurrentState()).render2D(screen);
 	}
 
 	@Override
@@ -83,7 +85,7 @@ public class GameState implements IState, IViewportDataSource {
 	public int getSkyColor() {
 		return 0x0080ff;
 	}
-	
+
 	@Override
 	public int getCeilingColor(double x, double y) {
 		return ((IGameState) parts.getCurrentState()).getCeilingColor(x, y);
@@ -131,18 +133,19 @@ public class GameState implements IState, IViewportDataSource {
 		getCar().getPosition().setY(0);
 		getViewport().setRotation(0);
 		if (parts.getCurrentState() == obstaclesState) {
-			List<Point> next = level.getNextPoints();
-			if (next == null) {
+			if (level.getNextPoints() == null) {
 				throw new Error("Win!");
 			} else {
-				Point[] targets = level.getPoint().getTargets();
+				Way[] targets = level.getPoint().getTargets();
 				decisionState.setLeft(targets[0]);
 				decisionState.setAhead(targets[1]);
 				decisionState.setRight(targets[2]);
 				parts.setState(decisionState);
 			}
 		} else {
-			level.jump(decisionState.getChosen());
+			Way chosen = decisionState.getChosen();
+			level.jump(chosen);
+			obstaclesState.preload(chosen);
 			parts.setState(obstaclesState);
 		}
 	}

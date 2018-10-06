@@ -1,21 +1,36 @@
 package com.naronco.thm2018.state.game;
 
 import java.awt.event.KeyEvent;
+import java.io.File;
 
+import com.deviotion.ld.eggine.graphics.Font;
 import com.deviotion.ld.eggine.graphics.Screen;
+import com.deviotion.ld.eggine.graphics.Sprite;
+import com.deviotion.ld.eggine.graphics.SpriteSheet;
+import com.deviotion.ld.eggine.math.Dimension2d;
 import com.deviotion.ld.eggine.math.Vector2d;
 import com.naronco.thm2018.Sprite3D;
 import com.naronco.thm2018.Sprites;
 import com.naronco.thm2018.graphics.Viewport;
 import com.naronco.thm2018.maze.Point;
+import com.naronco.thm2018.maze.Way;
 import com.naronco.thm2018.state.GameState;
 
 public class DecisionGameState implements IGameState {
 	private double crossingX = 0;
-	private double crossingY = 80;
+	private double crossingY = 60;
+	private SpriteSheet arrows;
 
-	private Point left, ahead, right;
-	private Point chosen;
+	private double getConstantEndMarker() {
+		return crossingY - 19;
+	}
+
+	private double getHaltMarker() {
+		return crossingY - 9;
+	}
+
+	private Way left, ahead, right;
+	private Way chosen;
 
 	private static final double TURN_TIME = 1.5;
 
@@ -34,6 +49,7 @@ public class DecisionGameState implements IGameState {
 	public DecisionGameState(GameState game) {
 		this.game = game;
 		trafficLight = new Sprite3D(new Vector2d(crossingX + 5, crossingY - 6), Sprites.trafficLight, 0, 20, -26, 0);
+		arrows = new SpriteSheet(new Sprite(new File("res/arrows.png"), 0xFFFF00FF), new Dimension2d(29, 29));
 	}
 
 	@Override
@@ -66,12 +82,18 @@ public class DecisionGameState implements IGameState {
 	public void update(double delta) {
 		time += delta;
 
-		boolean moveForward = game.getCarPos().getY() < crossingY - 9;
-		
-		double speed = moveForward ? 70 : 0;
+		boolean moveForward = game.getCarPos().getY() < getHaltMarker();
+
+		double speed;
+		if (game.getCarPos().getY() < getConstantEndMarker())
+			speed = 70;
+		else if (game.getCarPos().getY() < getHaltMarker()) // 40-50 (constantEndMarker - haltMarker)
+			speed = 70 - (game.getCarPos().getY() - getConstantEndMarker()) / (getHaltMarker() - getConstantEndMarker()) * 65;
+		else
+			speed = 0;
 		game.getCar().setSpeed(speed);
 		game.getCar().drive(delta);
-		
+
 		if (moveForward) {
 			game.getCar().fadeX(0, 0.5, delta);
 		} else if (choosing) {
@@ -133,10 +155,47 @@ public class DecisionGameState implements IGameState {
 			}
 		}
 	}
-	
+
 	@Override
 	public int getCeilingColor(double x, double y) {
 		return 0x0080ff;
+	}
+
+	@Override
+	public void render2D(Screen screen) {
+		if (game.getCarPos().getY() > getConstantEndMarker() && choosing) {
+			// arrows
+
+			if (left != null) {
+				screen.renderSpriteTile(8, (int) (screen.getDimension().getHeight() - arrows.getSpriteSize().getHeight()) - 34, arrows, 0);
+			}
+			if (ahead != null) {
+				screen.renderSpriteTile((int) (screen.getDimension().getWidth() - arrows.getSpriteSize().getWidth()) / 2, 18, arrows, 1);
+			}
+			if (right != null) {
+				screen.renderSpriteTile((int) (screen.getDimension().getWidth() - arrows.getSpriteSize().getWidth()) - 8, (int) (screen.getDimension().getHeight() - arrows.getSpriteSize().getHeight()) - 34, arrows, 2);
+			}
+
+			// text
+
+			if (left != null) {
+				renderTextOutlined(screen, 4, (int) screen.getDimension().getHeight() - 12, left.getName());
+			}
+			if (ahead != null) {
+				renderTextOutlined(screen, (int) (screen.getDimension().getWidth() - Font.standard.sizeOfText(ahead.getName()).getWidth()) / 2, 7, ahead.getName());
+			}
+			if (right != null) {
+				renderTextOutlined(screen, (int) (screen.getDimension().getWidth() - Font.standard.sizeOfText(right.getName()).getWidth()) - 4, (int) screen.getDimension().getHeight() - 24, right.getName());
+			}
+		}
+	}
+
+	private void renderTextOutlined(Screen screen, int x, int y, String text) {
+		screen.renderText(x - 1, y, Font.black, text);
+		screen.renderText(x + 1, y, Font.black, text);
+		screen.renderText(x, y - 1, Font.black, text);
+		screen.renderText(x, y + 1, Font.black, text);
+		screen.renderText(x, y, Font.standard, text);
 	}
 
 	@Override
@@ -169,31 +228,31 @@ public class DecisionGameState implements IGameState {
 		}
 	}
 
-	public Point getLeft() {
+	public Way getLeft() {
 		return left;
 	}
 
-	public void setLeft(Point left) {
+	public void setLeft(Way left) {
 		this.left = left;
 	}
 
-	public Point getAhead() {
+	public Way getAhead() {
 		return ahead;
 	}
 
-	public void setAhead(Point ahead) {
+	public void setAhead(Way ahead) {
 		this.ahead = ahead;
 	}
 
-	public Point getRight() {
+	public Way getRight() {
 		return right;
 	}
 
-	public void setRight(Point right) {
+	public void setRight(Way right) {
 		this.right = right;
 	}
 
-	public Point getChosen() {
+	public Way getChosen() {
 		return chosen;
 	}
 }
