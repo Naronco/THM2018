@@ -5,6 +5,7 @@ import com.deviotion.ld.eggine.math.Vector2d;
 import com.naronco.thm2018.Sprite3D;
 import com.naronco.thm2018.Sprites;
 import com.naronco.thm2018.graphics.Viewport;
+import com.naronco.thm2018.maze.Point;
 import com.naronco.thm2018.state.GameState;
 
 import java.awt.event.KeyEvent;
@@ -13,7 +14,8 @@ public class DecisionGameState implements IGameState {
 	private double crossingX = 0;
 	private double crossingY = 80;
 
-	private boolean hasLeft, hasAhead, hasRight;
+	private Point left, ahead, right;
+	private Point chosen;
 
 	private static final double TURN_TIME = 1.5;
 
@@ -39,6 +41,7 @@ public class DecisionGameState implements IGameState {
 		choosing = true;
 		animatingTurn = false;
 		animatingStraight = false;
+		chosen = null;
 		animatingTime = 0;
 	}
 
@@ -66,15 +69,18 @@ public class DecisionGameState implements IGameState {
 			game.getCar().drive(delta);
 			game.getCar().fadeX(0, 0.5, delta);
 		} else if (choosing) {
-			if (game.getKeyboard().isPressed(KeyEvent.VK_LEFT) && hasLeft) {
+			if (game.getKeyboard().isPressed(KeyEvent.VK_LEFT) && left != null) {
 				animateLeft = true;
 				choosing = false;
-			} else if (game.getKeyboard().isPressed(KeyEvent.VK_UP) && hasAhead) {
+				chosen = left;
+			} else if (game.getKeyboard().isPressed(KeyEvent.VK_UP) && ahead != null) {
 				animatingStraight = true;
 				choosing = false;
-			} else if (game.getKeyboard().isPressed(KeyEvent.VK_RIGHT) && hasRight) {
+				chosen = ahead;
+			} else if (game.getKeyboard().isPressed(KeyEvent.VK_RIGHT) && right != null) {
 				animateLeft = false;
 				choosing = false;
+				chosen = right;
 			}
 		} else {
 			if (!animatingStraight && !animatingTurn) {
@@ -130,7 +136,7 @@ public class DecisionGameState implements IGameState {
 
 		double stripeLength = 5.0;
 
-		boolean isStreet = (dy < 4 && adx <= 4) || (adx <= 4 && hasAhead) || (ady <= 4 && dy > 0 && hasLeft) || (ady <= 4 && dy < 0 && hasRight);
+		boolean isStreet = (dy < 4 && adx <= 4) || (adx <= 4 && ahead != null) || (ady <= 4 && dy > 0 && left != null) || (ady <= 4 && dy < 0 && right != null);
 		if (!isStreet) {
 			return game.getGrassFloorColor(x, y);
 		}
@@ -150,27 +156,31 @@ public class DecisionGameState implements IGameState {
 		}
 	}
 
-	public boolean isHasLeft() {
-		return hasLeft;
+	public Point getLeft() {
+		return left;
 	}
 
-	public void setHasLeft(boolean hasLeft) {
-		this.hasLeft = hasLeft;
+	public void setLeft(Point left) {
+		this.left = left;
 	}
 
-	public boolean isHasAhead() {
-		return hasAhead;
+	public Point getAhead() {
+		return ahead;
 	}
 
-	public void setHasAhead(boolean hasAhead) {
-		this.hasAhead = hasAhead;
+	public void setAhead(Point ahead) {
+		this.ahead = ahead;
 	}
 
-	public boolean isHasRight() {
-		return hasRight;
+	public Point getRight() {
+		return right;
 	}
 
-	public void setHasRight(boolean hasRight) {
-		this.hasRight = hasRight;
+	public void setRight(Point right) {
+		this.right = right;
+	}
+
+	public Point getChosen() {
+		return chosen;
 	}
 }
