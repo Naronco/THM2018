@@ -48,6 +48,7 @@ public class DecisionGameState implements IGameState {
 	@Override
 	public void unload() {
 		game.getCar().setDrifting(false);
+		game.getCar().setSpeed(70);
 	}
 
 	@Override

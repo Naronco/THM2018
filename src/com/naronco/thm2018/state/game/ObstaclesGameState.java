@@ -15,6 +15,9 @@ import java.util.List;
 public class ObstaclesGameState implements IGameState {
 	private GameState game;
 	private double time = 0;
+	
+	private double speedUpdateTime = 0;
+	private double nextSpeedUpdate = 0;
 
 	private double length = 128;
 	private double houseLength = 32;
@@ -69,6 +72,14 @@ public class ObstaclesGameState implements IGameState {
 	@Override
 	public void update(double delta) {
 		time += delta;
+		
+		speedUpdateTime += delta;
+		if (speedUpdateTime >= nextSpeedUpdate) {
+			speedUpdateTime = 0;
+			nextSpeedUpdate = 0.1 + Math.random() * 0.5;
+			game.getCar().setSpeed(70 + (Math.random() - 0.5) * 7.5);
+		}
+		
 		game.getCar().drive(delta);
 		
 		for (Obstacle obstacle : obstacles) {
