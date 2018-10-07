@@ -26,22 +26,33 @@ public abstract class Loop {
     private long lastLoop;
     private long lastFPS;
     private Window window;
+    private boolean running;
 
     public Loop (int fps, int ups, Window window) {
-        this.frameRate = fps;
-        this.updateRate = ups;
-        this.frames = 0;
-        this.updates = 0;
-        this.fps = 0;
-        this.ups = 0;
-        this.calculatedFrameRate = 1000000000f / this.frameRate;
-        this.calculatedUpdateRate = 1000000000f / this.updateRate;
-        this.lagRender = 0;
-        this.lagUpdate = 0;
+        setFps(fps);
+	    setUps(ups);
         this.lastLoop = 0;
         this.lastFPS = 0;
         this.window = window;
     }
+
+	public void setFps(int frameRate) {
+		this.frameRate = frameRate;
+		this.calculatedFrameRate = 1000000000f / this.frameRate;
+		this.lagRender = 0;
+		this.frames = 0;
+		this.fps = 0;
+		this.lagRender = 0;
+	}
+
+	public void setUps(int updateRate) {
+		this.updateRate = updateRate;
+		this.calculatedUpdateRate = 1000000000f / this.updateRate;
+		this.lagUpdate = 0;
+		this.updates = 0;
+		this.ups = 0;
+		this.lagUpdate = 0;
+	}
 
     public int getFps () {
         return this.fps;
@@ -57,7 +68,8 @@ public abstract class Loop {
         this.lastLoop = System.nanoTime();
 
         try {
-            while (true) {
+            running = true;
+            while (running && window.isValid()) {
                 long now = System.nanoTime();
                 long taken = now - this.lastLoop;
                 this.lastLoop = now;
@@ -72,13 +84,20 @@ public abstract class Loop {
                     this.updates++;
                 }
 
-                while (this.lagRender > this.calculatedFrameRate) {
+                /*while (this.lagRender > this.calculatedFrameRate) {
                     this.render(window.getScreen());
                     this.window.render();
 
                     this.lagRender -= this.calculatedFrameRate;
                     this.frames++;
-                }
+                }*/
+	            if (this.lagRender > this.calculatedFrameRate) {
+		            this.render(window.getScreen());
+		            this.window.render();
+
+		            this.lagRender = 0;
+		            this.frames++;
+	            }
 
                 now = System.nanoTime();
                 if (now >= this.lastFPS + 1000000000f) {
@@ -91,11 +110,16 @@ public abstract class Loop {
                     this.updates = 0;
                 }
 
-                Thread.sleep(5);
+                Thread.sleep(0);
             }
+            window.dispose();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void close() {
+        running = false;
     }
 
     public abstract void render (Screen screen);

@@ -3,13 +3,14 @@ package com.naronco.thm2018.graphics;
 import com.deviotion.ld.eggine.graphics.Screen;
 import com.deviotion.ld.eggine.graphics.Sprite;
 import com.deviotion.ld.eggine.math.Dimension2d;
+import com.deviotion.ld.eggine.math.Dimension2i;
 import com.deviotion.ld.eggine.math.Vector2d;
 import com.deviotion.ld.eggine.math.Vector3d;
 import com.naronco.thm2018.Dither;
 import com.naronco.thm2018.Sprite3D;
 
 public class Viewport {
-	private Dimension2d size;
+	private Dimension2i size;
 
 	private IViewportDataSource dataSource;
 
@@ -22,7 +23,7 @@ public class Viewport {
 	private static final double CAMERA_HEIGHT = 5;
 	public static final double CEILING_HEIGHT = 3;
 
-	public Viewport(Dimension2d size) {
+	public Viewport(Dimension2i size) {
 		this.size = size;
 		this.cameraPosition = new Vector2d(0, 0);
 
@@ -249,8 +250,9 @@ public class Viewport {
 		int skyG = ((sky >> 8) & 0xFF);
 		int skyB = ((sky) & 0xFF);
 
-		for (int yp = 0; yp < size.getHeight(); ++yp) {
-			for (int xp = 0; xp < size.getWidth(); ++xp) {
+		screen.lockRW();
+		for (int yp = 0; yp < screen.getDimension().getHeight(); ++yp) {
+			for (int xp = 0; xp < screen.getDimension().getWidth(); ++xp) {
 				double z = zBuffer[xp + yp * (int)size.getWidth()];
 				int br = 0xff - (int)((z * z * 0.01 - 10));
 				if (br < 0) br = 0;
@@ -268,6 +270,7 @@ public class Viewport {
 				screen.setPixel(xp, yp, Dither.lookupColor(xp, yp, (r << 16) | (g << 8) | b));
 			}
 		}
+		screen.unlockRW();
 	}
 
 	public IViewportDataSource getDataSource() {

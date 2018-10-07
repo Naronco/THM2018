@@ -13,9 +13,9 @@ public class House extends AlleyObject {
 	}
 	
 	public void render(Screen screen, Viewport viewport) {
-		viewport.renderWall(screen, new Vector2d(start.getX(), start.getY()), new Vector2d(start.getX(), end.getY()), 0xEEC39A);
-		viewport.renderWall(screen, new Vector2d(start.getX(), end.getY()), new Vector2d(end.getX(), end.getY()), 0xDF7126);
-		viewport.renderWall(screen, new Vector2d(end.getX(), end.getY()), new Vector2d(end.getX(), start.getY()), 0xEEC39A);
-		viewport.renderWall(screen, new Vector2d(end.getX(), start.getY()), new Vector2d(start.getX(), start.getY()), 0xDF7126);
+		viewport.renderWall(screen, new Vector2d(start.getX(), start.getY()), new Vector2d(start.getX(), end.getY()), 0xEEBB99);
+		viewport.renderWall(screen, new Vector2d(start.getX(), end.getY()), new Vector2d(end.getX(), end.getY()), 0xDD6633);
+		viewport.renderWall(screen, new Vector2d(end.getX(), end.getY()), new Vector2d(end.getX(), start.getY()), 0xDDAA99);
+		viewport.renderWall(screen, new Vector2d(end.getX(), start.getY()), new Vector2d(start.getX(), start.getY()), 0xCC6622);
 	}
 }

@@ -9,7 +9,7 @@ public class Font {
 	public static Font standard = new Font(new File("res/font.png"));
 	public static Font black = new Font(new File("res/font_black.png"));
 
-	private String characterIndex = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,:;!? 'ÄÖÜ>\"-()/";
+	private String characterIndex = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,:;!? 'ÄÖÜ<>\"-()/";
 	private SpriteSheet spriteSheet;
 	private Dimension2d characterSize;
 

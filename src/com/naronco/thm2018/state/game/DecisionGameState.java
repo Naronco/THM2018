@@ -208,23 +208,29 @@ public class DecisionGameState implements IGameState {
 
 		double stripeLength = 5.0;
 
-		boolean isStreet = (dy < 4 && adx <= 4) || (adx <= 4 && ahead != null) || (ady <= 4 && dx > 0 && left != null) || (ady <= 4 && dx < 0 && right != null);
+		boolean isStreet = (dy < 6 && adx <= 6) || (adx <= 6 && ahead != null) || (ady <= 6 && dx > 0 && left != null) || (ady <= 6 && dx < 0 && right != null);
 		if (!isStreet) {
 			return game.getGrassFloorColor(x, y);
 		}
 
-		boolean isCrossing = adx <= 4 && ady <= 4;
+		boolean isCrossing = adx <= 6 && ady <= 6;
 		if (isCrossing) {
-			return 0x696A6A;
+			if (right == null && dx < 0)
+				return GameState.getRoadColorByWidth(adx);
+			if (left == null && dx > 0)
+				return GameState.getRoadColorByWidth(adx);
+			if (ahead == null && dy > 0)
+				return GameState.getRoadColorByWidth(ady);
+			return GameState.getRoadColorByWidth(adx, ady);
 		}
 
-		boolean isVerticalRoad = adx <= 4;
+		boolean isVerticalRoad = adx <= 6;
 		if (isVerticalRoad) {
 			boolean isStripe = (adx < 0.4) && ((int) Math.floor(ady / stripeLength) & 1) == 1;
-			return isStripe ? 0xffffff : 0x696A6A;
+			return isStripe ? 0xffffff : GameState.getRoadColorByWidth(adx);
 		} else {
 			boolean isStripe = (ady < 0.4) && ((int) Math.floor(adx / stripeLength) & 1) == 1;
-			return isStripe ? 0xffffff : 0x696A6A;
+			return isStripe ? 0xffffff : GameState.getRoadColorByWidth(ady);
 		}
 	}
 

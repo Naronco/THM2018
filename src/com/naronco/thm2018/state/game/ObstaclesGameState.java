@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import com.deviotion.ld.eggine.graphics.Font;
 import com.deviotion.ld.eggine.graphics.Screen;
 import com.deviotion.ld.eggine.math.Vector2d;
 import com.naronco.thm2018.Sprite3D;
@@ -12,6 +13,7 @@ import com.naronco.thm2018.Sprites;
 import com.naronco.thm2018.alley.Alley;
 import com.naronco.thm2018.alley.Bridge;
 import com.naronco.thm2018.alley.House;
+import com.naronco.thm2018.alley.Sprite3DAlleyObject;
 import com.naronco.thm2018.graphics.Viewport;
 import com.naronco.thm2018.maze.Way;
 import com.naronco.thm2018.state.GameState;
@@ -26,7 +28,12 @@ public class ObstaclesGameState implements IGameState {
 
 	private double length;
 
+	private double baseSpeed = 70;
+	private double speedMultiplier = 1;
+
 	private static final double TURN_SPEED = 3.5;
+
+	private boolean initLoading;
 
 	private List<Obstacle> obstacles = new ArrayList<>();
 
@@ -47,7 +54,7 @@ public class ObstaclesGameState implements IGameState {
 
 	@Override
 	public void render2D(Screen screen) {
-
+		screen.renderText(4, (int) screen.getDimension().getHeight() - 1 - 12, Font.standard, (int) game.getCar().getSpeed() + " km/h");
 	}
 
 	@Override
@@ -55,8 +62,9 @@ public class ObstaclesGameState implements IGameState {
 		return game.getBaseFloorColor(x, y);
 	}
 
-	public void preload(Way way) {
+	public void preload(Way way, int turns) {
 		this.way = way;
+		setSpeedMultiplier(0.9 + turns * 0.05);
 	}
 
 	@Override
@@ -64,9 +72,19 @@ public class ObstaclesGameState implements IGameState {
 		game.getCar().setPosition(new Vector2d(0, 0));
 
 		Random random = new Random(way.getSeed());
-		length = 200;
+		length = 215;
 
-		double y = 50;
+		baseSpeed = 70;
+
+		double y;
+
+		for (y = 30; y < length; y += 40) {
+			environment.addObject(new Sprite3DAlleyObject(new Sprite3D(new Vector2d(5, y), Sprites.lights, 0, 18, -26, 0)));
+			environment.addObject(new Sprite3DAlleyObject(new Sprite3D(new Vector2d(-5, y), Sprites.lightsLeft, 0, 18, 26, 0)));
+		}
+
+		y = 60;
+
 		while (y < length) {
 			int buildingType = random.nextInt(3);
 			double width = 20 + random.nextDouble() * 20;
@@ -93,10 +111,15 @@ public class ObstaclesGameState implements IGameState {
 			}
 		}
 
-		y = 40.0;
+		y = 55.0;
 		while (y < length) {
-			obstacles.add(new Obstacle(new Sprite3D(new Vector2d((random.nextDouble() - 0.5) * 7.75, y), Sprites.gulli, 10, 5, 0, 0), 0.1));
+			obstacles.add(new Obstacle(new Sprite3D(new Vector2d((random.nextDouble() - 0.5) * 7.75, y), Sprites.gulli, 2, 5, 0, 0), 0.1));
 			y += 8.0 + random.nextDouble() * 8.0;
+		}
+
+		if (initLoading) {
+			game.getCar().getPosition().setY(-50);
+			game.getCar().setSpeed(0);
 		}
 	}
 
@@ -117,25 +140,50 @@ public class ObstaclesGameState implements IGameState {
 		}
 	}
 
+	public void fadeBaseSpeed(double x, double factor, double delta) {
+		baseSpeed = (baseSpeed - x) * Math.pow(1 - factor, delta) + x;
+	}
+
 	@Override
 	public void update(double delta) {
 		time += delta;
+		if (initLoading && time < 2) {
+			return;
+		} else {
+			initLoading = false;
+		}
 
 		speedUpdateTime += delta;
 		if (speedUpdateTime >= nextSpeedUpdate) {
 			speedUpdateTime = 0;
 			nextSpeedUpdate = 0.1 + Math.random() * 0.5;
-			game.getCar().setSpeed(70 + (Math.random() - 0.5) * 7.5);
+			game.getCar().setSpeed(baseSpeed * speedMultiplier + (Math.random() - 0.5) * 7.5);
 		}
 
-		game.getCar().drive(game.getKeyboard().isPressed(KeyEvent.VK_SPACE) ? delta * 10 : delta);
+		//game.getViewport().setRotation(game.getViewport().getRotation() + delta * 0.3);
 
+		if (game.getKeyboard().isPressed(KeyEvent.VK_SPACE)) {
+			baseSpeed += delta * 10;
+		}
+
+		if (baseSpeed > 70) {
+			fadeBaseSpeed(70, 0.3, delta);
+		} else {
+			baseSpeed = 70;
+		}
+
+		game.getCar().drive(delta);
+
+		Obstacle remove = null;
 		for (Obstacle obstacle : obstacles) {
 			double distSquared = obstacle.getSprite().getPosition().subtract(game.getCarPos()).getLengthSquared();
 			if (distSquared < (game.getCar().getRadius() + obstacle.getRadius()) * (game.getCar().getRadius() + obstacle.getRadius())) {
-				game.getCar().onHit(obstacle);
+				if (game.getCar().onHit(obstacle))
+					remove = obstacle;
 			}
 		}
+		if (remove != null)
+			obstacles.remove(remove);
 
 		if (game.getCar().getPosition().getY() > length)
 			game.transitionIntoNextState();
@@ -145,5 +193,17 @@ public class ObstaclesGameState implements IGameState {
 		} else if (game.getKeyboard().isPressed(KeyEvent.VK_RIGHT)) {
 			game.getCar().getPosition().setX(Math.min(game.getCar().getPosition().getX() + delta * TURN_SPEED, 4));
 		}
+	}
+
+	public void setInit(boolean b) {
+		initLoading = b;
+	}
+
+	public double getSpeedMultiplier() {
+		return speedMultiplier;
+	}
+
+	public void setSpeedMultiplier(double speedMultiplier) {
+		this.speedMultiplier = speedMultiplier;
 	}
 }
