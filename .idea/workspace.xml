@@ -4,10 +4,26 @@
     <option name="GROUP_BY_SEVERITY" value="true" />
     <option name="SHOW_STRUCTURE" value="true" />
   </component>
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="InfinityJam:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/com/naronco/thm2018/state/GameState.java" line="318" mnemonic="9" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="c66592c8-2f46-4122-8531-5032404eb13d" name="Default" comment="" />
+    <list default="true" id="c66592c8-2f46-4122-8531-5032404eb13d" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/InfinityJam.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/InfinityJam.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/options.wav" beforeDir="false" afterPath="$PROJECT_DIR$/res/options.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/race.wav" beforeDir="false" afterPath="$PROJECT_DIR$/res/race.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/streetnames.txt" beforeDir="false" afterPath="$PROJECT_DIR$/res/streetnames.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/titelscreen.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/wintrack.wav" beforeDir="false" afterPath="$PROJECT_DIR$/res/wintrack.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,41 +32,189 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/InfinityJam$Application.coverage" NAME="Application Coverage Results" MODIFIED="1508678873453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="592050079">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="5" />
+          <entry key="project.open.time.0" value="2" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="class" value="1" />
+          <entry key="java" value="144" />
+          <entry key="png" value="4" />
+          <entry key="txt" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="1" />
+          <entry key="Image" value="4" />
+          <entry key="JAVA" value="144" />
+          <entry key="PLAIN_TEXT" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="19" />
+          <entry key="java" value="28559" />
+          <entry key="txt" value="63" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="28559" />
+          <entry key="PLAIN_TEXT" value="82" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/Game.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/state/GameState.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="162">
+              <caret line="63" column="28" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#243#244#0" expanded="true" />
-                <element signature="e#320#321#0" expanded="true" />
+                <element signature="e#3760#3761#0" expanded="true" />
+                <element signature="e#3782#3783#0" expanded="true" />
+                <element signature="e#3844#3845#0" expanded="true" />
+                <element signature="e#3918#3919#0" expanded="true" />
+                <element signature="e#4351#4352#0" expanded="true" />
+                <element signature="e#4423#4424#0" expanded="true" />
+                <element signature="e#4457#4458#0" expanded="true" />
+                <element signature="e#4479#4480#0" expanded="true" />
+                <element signature="e#4511#4512#0" expanded="true" />
+                <element signature="e#4547#4548#0" expanded="true" />
+                <element signature="e#4590#4591#0" expanded="true" />
+                <element signature="e#4625#4626#0" expanded="true" />
+                <element signature="e#4655#4656#0" expanded="true" />
+                <element signature="e#4672#4673#0" expanded="true" />
+                <element signature="e#6233#6234#0" expanded="true" />
+                <element signature="e#6265#6266#0" expanded="true" />
+                <element signature="e#6319#6320#0" expanded="true" />
+                <element signature="e#6358#6359#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/Main.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/alley/AlleyObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="60">
+              <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Sound.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/deviotion/ld/eggine/sound/Sound.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/state/game/PlayerCar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+            <state relative-caret-position="211">
+              <caret line="73" column="5" lean-forward="true" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#960#961#0" expanded="true" />
-                <element signature="e#1000#1001#0" expanded="true" />
+                <element signature="e#2105#2106#0" expanded="true" />
+                <element signature="e#2115#2116#0" expanded="true" />
+                <element signature="e#2222#2223#0" expanded="true" />
+                <element signature="e#2249#2250#0" expanded="true" />
+                <element signature="e#2276#2277#0" expanded="true" />
+                <element signature="e#2295#2296#0" expanded="true" />
+                <element signature="e#2331#2332#0" expanded="true" />
+                <element signature="e#2349#2350#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/state/game/DecisionGameState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="218" column="44" lean-forward="true" selection-start-line="218" selection-start-column="44" selection-end-line="218" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/graphics/Viewport.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="436">
+              <caret line="269" column="56" lean-forward="true" selection-start-line="269" selection-start-column="56" selection-end-line="269" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/Dither.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="422">
+              <caret line="154" column="50" lean-forward="true" selection-start-line="154" selection-start-column="50" selection-end-line="154" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/state/game/ObstaclesGameState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="318">
+              <caret line="172" column="9" lean-forward="true" selection-start-line="172" selection-start-column="9" selection-end-line="172" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#5370#5371#0" expanded="true" />
+                <element signature="e#5392#5393#0" expanded="true" />
+                <element signature="e#5691#5692#0" expanded="true" />
+                <element signature="e#5720#5721#0" expanded="true" />
+                <element signature="e#5779#5780#0" expanded="true" />
+                <element signature="e#5824#5825#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/Options.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/maze/MazeGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#852#853#0" expanded="true" />
+                <element signature="e#879#880#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/alley/Alley.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+              <folding>
+                <element signature="e#696#697#0" expanded="true" />
+                <element signature="e#718#719#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -62,35 +226,43 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package-info" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>playInfinitely</find>
-      <find>setWidth</find>
-      <find>selectedItem</find>
-      <find>.click</find>
-      <find>musicEnabled</find>
-      <find>setScene</find>
-      <find>run</find>
-      <find>randomDudeTalked</find>
-      <find>HEAD</find>
-      <find>teleport</find>
-      <find>finishQue</find>
-      <find>rewards</find>
-      <find>die</find>
-      <find>gameOver</find>
-      <find>win</find>
-      <find>win();</find>
-      <find>ui</find>
-      <find>ui</find>
-      <find>ui.</find>
-      <find>, ui</find>
-      <find>die()</find>
       <find>win()</find>
+      <find>TURN_TIME</find>
+      <find>lagUpdate</find>
+      <find>animatingTurn</find>
+      <find>projectWorldToViewport</find>
+      <find>obstaclesState</find>
+      <find>contains</find>
+      <find>getResource</find>
+      <find>font</find>
+      <find>mixPixel</find>
+      <find>Bernd</find>
+      <find>keyReleased</find>
+      <find>clear</find>
+      <find>ende</find>
+      <find>graphics</find>
+      <find>createG</find>
+      <find>renderText</find>
+      <find>initLoading</find>
+      <find>titlescreen</find>
+      <find>calculatedUpdateRate</find>
+      <find>setPixel</find>
+      <find>getPixel</find>
+      <find>car</find>
+      <find>color</find>
+      <find>noise</find>
+      <find>postproce</find>
+      <find>space</find>
+      <find>fade</find>
+      <find>baseSpeed</find>
+      <find>badTurns</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -102,72 +274,69 @@
         <entry key="$PROJECT_DIR$/../MCSpectatorCamera" value="1464467872966" />
       </map>
     </option>
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/interactables/Bed.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/interactables/Bottle.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/interactables/Bucket.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/interactables/CasinoSign.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/interactables/Door.java" />
-        <option value="$PROJECT_DIR$/src/com/deviotion/ld/eggine/loop/Loop.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/scenes/SlotMachineRoll.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/ISceneTransition.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/transitions/DiagonalRevealTransition.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/interactables/Hole.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/ExitStepArea.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/transitions/BlackOverlayTransition.java" />
-        <option value="$PROJECT_DIR$/src/com/deviotion/ld/eggine/graphics/ITextAreaListener.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/dialog/Dialog.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/Item.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/Character.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/scenes/PointAndClickScene.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/quests/DrugDealerVisitQuest.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/quests/BadGuysQuest.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/quests/AlleyQuest.java" />
-        <option value="$PROJECT_DIR$/src/com/deviotion/ld/eggine/graphics/Screen.java" />
-        <option value="$PROJECT_DIR$/story.txt" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/scenes/inventory/Inventory.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/quests/TripleSevenQuest.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/dialog/SceneChangeAnswer.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/dialog/ICondition.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/dialog/ConditionalAnswer.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/dialog/TeleportAnswer.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/scenes/ShellGame.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/scenes/Hut.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/scenes/Street.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/quests/DrugDealerQuest.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/scenes/Hallway.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/interactables/DrugPlant.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/scenes/Casino.java" />
-        <option value="$PROJECT_DIR$/src/com/deviotion/ld/eggine/graphics/TextArea.java" />
-        <option value="$PROJECT_DIR$/src/com/deviotion/ld/eggine/math/Rectangle2d.java" />
-        <option value="$PROJECT_DIR$/src/com/deviotion/ld/eggine/math/Dimension2d.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/Sprites.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/scenes/SlotMachine.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/interactables/GamingMachine.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/Player.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/scenes/Alley.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/scenes/AlleyChallenge.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/Sounds.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/MazeGenerator.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/maze/Intersection.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/maze/WayPoint.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/State.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/StateManager.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/state/State.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/state/IState.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/state/IGameIState.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/state/GameIState.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/state/IGameState.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/state/DecisionGameIState.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/state/DecisionGameState.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/Sprite3D.java" />
+        <option value="$PROJECT_DIR$/src/com/deviotion/ld/eggine/math/Vector2d.java" />
+        <option value="$PROJECT_DIR$/src/com/deviotion/ld/eggine/math/Vector3d.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/maze/Way.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/alley/Alley.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/alley/Bridge.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/maze/Point.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/state/game/IGameState.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/maze/MazeGenerator.java" />
+        <option value="$PROJECT_DIR$/src/net/arikia/dev/drpc/DiscordRPC.java" />
+        <option value="$PROJECT_DIR$/res/streetnames.txt" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/state/SimpleMenuState.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/state/StateManager.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/alley/House.java" />
+        <option value="$PROJECT_DIR$/src/com/deviotion/ld/eggine/sound/BigClip.java" />
         <option value="$PROJECT_DIR$/src/com/deviotion/ld/eggine/graphics/Font.java" />
-        <option value="$PROJECT_DIR$/src/com/deviotion/ld/eggine/sound/Sound.java" />
-        <option value="$PROJECT_DIR$/src/com/naronco/infinityjam/Game.java" />
-        <option value="$PROJECT_DIR$/src/de/shadowbikers/thm2018/Main.java" />
-        <option value="$PROJECT_DIR$/src/de/shadowbikers/thm2018/Game.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/state/MainMenuState.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/deviotion/ld/eggine/math/Dimension2i.java" />
+        <option value="$PROJECT_DIR$/src/com/deviotion/ld/eggine/graphics/Window.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/graphics/Viewport.java" />
+        <option value="$PROJECT_DIR$/src/com/deviotion/ld/eggine/graphics/Screen.java" />
+        <option value="$PROJECT_DIR$/src/com/deviotion/ld/eggine/loop/Loop.java" />
+        <option value="$PROJECT_DIR$/src/com/deviotion/ld/eggine/input/Keyboard.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/maze/Level.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/state/WinState.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/state/OptionsState.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/state/FailState.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/alley/Sprite3DAlleyObject.java" />
         <option value="$PROJECT_DIR$/src/com/naronco/thm2018/Game.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/Sprites.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/graphics/Perlin.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/graphics/Noise.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/state/game/DecisionGameState.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/Dither.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/state/game/PlayerCar.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/state/GameState.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/state/game/ObstaclesGameState.java" />
+        <option value="$PROJECT_DIR$/src/com/naronco/thm2018/Options.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="319" />
-    <option name="y" value="473" />
-    <option name="width" value="1488" />
-    <option name="height" value="886" />
+    <option name="x" value="-2" />
+    <option name="y" value="-27" />
+    <option name="width" value="164" />
+    <option name="height" value="149" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -209,31 +378,26 @@
       </profile-state>
     </entry>
   </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="THM2018" type="b2602c69:ProjectViewProjectNode" />
               <item name="THM2018" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="THM2018" type="b2602c69:ProjectViewProjectNode" />
+              <item name="THM2018" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="THM2018" type="b2602c69:ProjectViewProjectNode" />
@@ -260,25 +424,74 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="thm2018" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="THM2018" type="b2602c69:ProjectViewProjectNode" />
+              <item name="THM2018" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="thm2018" type="462c0819:PsiDirectoryNode" />
+              <item name="alley" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="THM2018" type="b2602c69:ProjectViewProjectNode" />
+              <item name="THM2018" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="thm2018" type="462c0819:PsiDirectoryNode" />
+              <item name="graphics" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="THM2018" type="b2602c69:ProjectViewProjectNode" />
+              <item name="THM2018" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="thm2018" type="462c0819:PsiDirectoryNode" />
+              <item name="maze" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="THM2018" type="b2602c69:ProjectViewProjectNode" />
+              <item name="THM2018" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="thm2018" type="462c0819:PsiDirectoryNode" />
+              <item name="state" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="THM2018" type="b2602c69:ProjectViewProjectNode" />
+              <item name="THM2018" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="thm2018" type="462c0819:PsiDirectoryNode" />
+              <item name="state" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="SearchEverywhereHistoryKey" value="Font&#9;FILE&#9;file:///Users/Johannes/dev/InfinityJam/src/com/deviotion/ld/eggine/graphics/Font.java&#10;Game&#9;FILE&#9;file:///Users/Johannes/dev/InfinityJam/src/com/naronco/infinityjam/Game.java&#10;Alley&#9;FILE&#9;file:///Users/Johannes/dev/InfinityJam/src/com/naronco/infinityjam/scenes/AlleyChallenge.java&#10;SlotMachine&#9;FILE&#9;file:///Users/Johannes/dev/InfinityJam/src/com/naronco/infinityjam/scenes/SlotMachine.java&#10;Casino&#9;FILE&#9;file:///Users/Johannes/dev/InfinityJam/src/com/naronco/infinityjam/scenes/Casino.java&#10;ShellGame&#9;PSI&#9;JAVA://com.naronco.infinityjam.scenes.ShellGame&#10;RectA&#9;PSI&#9;JAVA://com.deviotion.ld.eggine.math.Rectangle2d&#10;Inven&#9;FILE&#9;file:///Users/Johannes/dev/InfinityJam/src/com/naronco/infinityjam/scenes/inventory/Inventory.java&#10;TextArea&#9;FILE&#9;file:///Users/Johannes/dev/InfinityJam/src/com/deviotion/ld/eggine/graphics/TextArea.java&#10;Character&#9;FILE&#9;file:///Users/Johannes/dev/InfinityJam/src/com/naronco/infinityjam/Character.java&#10;Gaming&#9;FILE&#9;file:///Users/Johannes/dev/InfinityJam/src/com/naronco/infinityjam/interactables/GamingMachine.java" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538931308879" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/java-openal-1.1.0-SNAPSHOT.jar!/" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="SearchEverywhereHistoryKey" value="Font&#9;FILE&#9;file:///Users/Johannes/dev/InfinityJam/src/com/deviotion/ld/eggine/graphics/Font.java&#10;Game&#9;FILE&#9;file:///Users/Johannes/dev/InfinityJam/src/com/naronco/infinityjam/Game.java&#10;Alley&#9;FILE&#9;file:///Users/Johannes/dev/InfinityJam/src/com/naronco/infinityjam/scenes/AlleyChallenge.java&#10;SlotMachine&#9;FILE&#9;file:///Users/Johannes/dev/InfinityJam/src/com/naronco/infinityjam/scenes/SlotMachine.java&#10;Casino&#9;FILE&#9;file:///Users/Johannes/dev/InfinityJam/src/com/naronco/infinityjam/scenes/Casino.java&#10;ShellGame&#9;PSI&#9;JAVA://com.naronco.infinityjam.scenes.ShellGame&#10;RectA&#9;PSI&#9;JAVA://com.deviotion.ld.eggine.math.Rectangle2d&#10;Inven&#9;FILE&#9;file:///Users/Johannes/dev/InfinityJam/src/com/naronco/infinityjam/scenes/inventory/Inventory.java&#10;TextArea&#9;FILE&#9;file:///Users/Johannes/dev/InfinityJam/src/com/deviotion/ld/eggine/graphics/TextArea.java&#10;Character&#9;FILE&#9;file:///Users/Johannes/dev/InfinityJam/src/com/naronco/infinityjam/Character.java&#10;Gaming&#9;FILE&#9;file:///Users/Johannes/dev/InfinityJam/src/com/naronco/infinityjam/interactables/GamingMachine.java" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/res" />
       <recent name="$PROJECT_DIR$/src/com/naronco/infinityjam/scenes" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.deviotion.ld.eggine.math" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.naronco.thm2018" />
+      <recent name="com.naronco.thm2018.state" />
       <recent name="com.naronco.infinityjam" />
     </key>
   </component>
@@ -294,104 +507,51 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Application">
-    <configuration name="Application" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="de.shadowbikers.thm2018.Main" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="InfinityJam" />
-      <envs />
-    </configuration>
+  <component name="RunManager">
     <configuration default="true" type="Applet" factoryName="Applet">
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <module />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Application" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.naronco.thm2018.Main" />
+      <module name="InfinityJam" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-    </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-    </configuration>
-  </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -407,409 +567,611 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="49" y="23" width="2511" height="1417" extended-state="6" />
-    <editor active="true" />
+    <frame x="6" y="7" width="1908" height="1035" extended-state="6" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32862455" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.133829" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11867782" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22150537" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32747254" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.31648353" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.2923077" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Inspection Results" order="7" weight="0.32919255" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32967034" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32857144" />
+      <window_info anchor="right" x="0" y="0" width="427" height="861" id="Documentation" order="0" side_tool="true" weight="0.3295699" />
+      <window_info anchor="right" id="Commander" order="1" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.015591398" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Coverage" order="6" side_tool="true" weight="0.3297568" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Maven Projects" order="9" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="10" />
-    </breakpoint-manager>
-    <watches-manager />
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="breakpointCondition">
+      <expression>
+        <expression-string>dither!=0</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/transitions/BlackOverlayTransition.java">
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/graphics/IViewportDataSource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state relative-caret-position="30">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/quests.txt" />
-    <entry file="file://$PROJECT_DIR$/src/com/deviotion/ld/eggine/graphics/ITextAreaListener.java">
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/state/IState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/Item.java">
+    <entry file="file://$PROJECT_DIR$/src/com/deviotion/ld/eggine/graphics/SpriteSheet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-          <folding />
+        <state relative-caret-position="180">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/Character.java">
+    <entry file="file://$PROJECT_DIR$/src/com/deviotion/ld/eggine/math/Vector2d.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="180">
+          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="17" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/Interactable.java">
+    <entry file="file://$PROJECT_DIR$/src/com/deviotion/ld/eggine/math/Vector3d.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/interactables/Bottle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="65" column="36" lean-forward="false" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/quests/DrugDealerVisitQuest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="21" column="44" lean-forward="false" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/interactables/Door.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/interactables/DialogTrigger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="14" column="11" lean-forward="false" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/deviotion/ld/eggine/graphics/Screen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="145" column="0" lean-forward="true" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/story.txt" />
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/quests/AlleyQuest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="28" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/bullet.png" />
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/quests/TripleSevenQuest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/dialog/SceneChangeAnswer.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/dialog/IAnswer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="29" lean-forward="true" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="1962" column="0" lean-forward="false" selection-start-line="1962" selection-start-column="0" selection-end-line="1962" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/dialog/ICondition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/deviotion/ld/eggine/loop/Loop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="84" column="37" lean-forward="false" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/dialog/StaticAnswer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/dialog/ConditionalAnswer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/dialog/TeleportAnswer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="11" column="36" lean-forward="true" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/scenes/ShellGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="151" column="33" lean-forward="true" selection-start-line="151" selection-start-column="33" selection-end-line="151" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/scenes/Hut.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="14" column="35" lean-forward="false" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/scenes/Elevator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="71" column="21" lean-forward="false" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/QuestExitStepArea.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/scenes/Street.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="26" column="23" lean-forward="false" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/quests/DrugDealerQuest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/dialog/Dialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/scenes/Hallway.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2">
-          <caret line="210" column="35" lean-forward="true" selection-start-line="210" selection-start-column="35" selection-end-line="210" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/interactables/DrugPlant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="114" column="8" lean-forward="false" selection-start-line="114" selection-start-column="8" selection-end-line="114" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/scenes/Casino.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/fontwhite.png" />
-    <entry file="file://$PROJECT_DIR$/src/com/deviotion/ld/eggine/graphics/TextArea.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="124" column="83" lean-forward="false" selection-start-line="124" selection-start-column="83" selection-end-line="124" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/deviotion/ld/eggine/math/Rectangle2d.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="44" column="56" lean-forward="true" selection-start-line="44" selection-start-column="56" selection-end-line="44" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/deviotion/ld/eggine/math/Dimension2d.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="23" lean-forward="false" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        <state relative-caret-position="466">
+          <caret line="96" selection-start-line="96" selection-end-line="96" />
           <folding>
-            <element signature="e#665#666#0" expanded="true" />
-            <element signature="e#715#716#0" expanded="true" />
+            <element signature="e#575#576#0" expanded="true" />
+            <element signature="e#595#596#0" expanded="true" />
+            <element signature="e#1217#1218#0" expanded="true" />
+            <element signature="e#1285#1286#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/Sprites.java">
+    <entry file="file://$PROJECT_DIR$/src/com/deviotion/ld/eggine/graphics/Sprite.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" column="60" lean-forward="false" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
-          <folding />
+        <state relative-caret-position="18">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/interactables/GamingMachine.java">
+    <entry file="file://$PROJECT_DIR$/res/font.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/font_black.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/maze/Point.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="51" column="15" lean-forward="false" selection-start-line="51" selection-start-column="15" selection-end-line="51" selection-end-column="15" />
-          <folding />
+        <state relative-caret-position="100">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/maze/Way.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="60">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+          <folding>
+            <element signature="e#266#267#0" expanded="true" />
+            <element signature="e#286#287#0" expanded="true" />
+            <element signature="e#326#327#0" expanded="true" />
+            <element signature="e#353#354#0" expanded="true" />
+            <element signature="e#379#380#0" expanded="true" />
+            <element signature="e#397#398#0" expanded="true" />
+            <element signature="e#432#433#0" expanded="true" />
+            <element signature="e#455#456#0" expanded="true" />
+            <element signature="e#483#484#0" expanded="true" />
+            <element signature="e#501#502#0" expanded="true" />
+            <element signature="e#538#539#0" expanded="true" />
+            <element signature="e#561#562#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/Player.java">
+    <entry file="file://$PROJECT_DIR$/src/net/arikia/dev/drpc/DiscordRPC.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/state/game/IGameState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="66" column="13" lean-forward="false" selection-start-line="66" selection-start-column="13" selection-end-line="66" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="150">
+          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/scenes/Alley.java">
+    <entry file="file://$PROJECT_DIR$/res/streetnames.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="74" column="215" lean-forward="false" selection-start-line="74" selection-start-column="215" selection-end-line="74" selection-end-column="215" />
-          <folding />
+        <state relative-caret-position="525">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/scenes/AlleyChallenge.java">
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/state/game/Obstacle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1819">
-          <caret line="128" column="42" lean-forward="false" selection-start-line="128" selection-start-column="42" selection-end-line="128" selection-end-column="42" />
-          <folding />
+        <state relative-caret-position="90">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/scenes/SlotMachine.java">
+    <entry file="file://$PROJECT_DIR$/res/car.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/deviotion/ld/eggine/sound/BigClip.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="18" column="20" lean-forward="false" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-          <folding />
+        <state relative-caret-position="363">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="63" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3173#3174#0" expanded="true" />
+            <element signature="e#3196#3197#0" expanded="true" />
+            <element signature="e#3381#3382#0" expanded="true" />
+            <element signature="e#3408#3409#0" expanded="true" />
+            <element signature="e#3840#3841#0" expanded="true" />
+            <element signature="e#3889#3890#0" expanded="true" />
+            <element signature="e#4763#4764#0" expanded="true" />
+            <element signature="e#4827#4828#0" expanded="true" />
+            <element signature="e#4879#4880#0" expanded="true" />
+            <element signature="e#4940#4941#0" expanded="true" />
+            <element signature="e#4990#4991#0" expanded="true" />
+            <element signature="e#5049#5050#0" expanded="true" />
+            <element signature="e#5784#5785#0" expanded="true" />
+            <element signature="e#5836#5837#0" expanded="true" />
+            <element signature="e#8153#8154#0" expanded="true" />
+            <element signature="e#8186#8187#0" expanded="true" />
+            <element signature="e#8236#8237#0" expanded="true" />
+            <element signature="e#8304#8305#0" expanded="true" />
+            <element signature="e#8342#8343#0" expanded="true" />
+            <element signature="e#8376#8377#0" expanded="true" />
+            <element signature="e#8418#8419#0" expanded="true" />
+            <element signature="e#8456#8457#0" expanded="true" />
+            <element signature="e#8502#8503#0" expanded="true" />
+            <element signature="e#8522#8523#0" expanded="true" />
+            <element signature="e#8563#8564#0" expanded="true" />
+            <element signature="e#8596#8597#0" expanded="true" />
+            <element signature="e#8638#8639#0" expanded="true" />
+            <element signature="e#8672#8673#0" expanded="true" />
+            <element signature="e#8711#8712#0" expanded="true" />
+            <element signature="e#8742#8743#0" expanded="true" />
+            <element signature="e#9827#9828#0" expanded="true" />
+            <element signature="e#9852#9853#0" expanded="true" />
+            <element signature="e#10062#10063#0" expanded="true" />
+            <element signature="e#10086#10087#0" expanded="true" />
+            <element signature="e#15462#15463#0" expanded="true" />
+            <element signature="e#15485#15486#0" expanded="true" />
+            <element signature="e#15520#15521#0" expanded="true" />
+            <element signature="e#15543#15544#0" expanded="true" />
+            <element signature="e#15612#15613#0" expanded="true" />
+            <element signature="e#15656#15657#0" expanded="true" />
+            <element signature="e#15722#15723#0" expanded="true" />
+            <element signature="e#15763#15764#0" expanded="true" />
+            <element signature="e#15826#15827#0" expanded="true" />
+            <element signature="e#15868#15869#0" expanded="true" />
+            <element signature="e#16087#16088#0" expanded="true" />
+            <element signature="e#16137#16138#0" expanded="true" />
+            <element signature="e#16172#16173#0" expanded="true" />
+            <element signature="e#16195#16196#0" expanded="true" />
+            <element signature="e#16392#16393#0" expanded="true" />
+            <element signature="e#16428#16429#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/Sounds.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/options.java">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/deviotion/ld/eggine/graphics/Font.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/scenes/PointAndClickScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="72" column="33" lean-forward="false" selection-start-line="72" selection-start-column="33" selection-end-line="72" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/naronco/infinityjam/scenes/inventory/Inventory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="88" column="64" lean-forward="true" selection-start-line="88" selection-start-column="64" selection-end-line="88" selection-end-column="64" />
-          <folding />
+        <state relative-caret-position="105">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/deviotion/ld/eggine/sound/Sound.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state relative-caret-position="325">
+          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+          <folding>
+            <element signature="e#499#512#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/state/MainMenuState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#960#961#0" expanded="true" />
-            <element signature="e#1000#1001#0" expanded="true" />
+            <element signature="e#514#515#0" expanded="true" />
+            <element signature="e#537#538#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
+            <element signature="e#697#698#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/deviotion/ld/eggine/math/Dimension2d.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="26" lean-forward="true" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+          <folding>
+            <element signature="e#444#445#0" expanded="true" />
+            <element signature="e#478#479#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-openjdk/jre/lib/rt.jar!/java/awt/image/BufferedImage.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="58" column="15" selection-start-line="58" selection-start-column="15" selection-end-line="58" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/deviotion/ld/eggine/math/Dimension2i.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/deviotion/ld/eggine/loop/Loop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="99" column="17" selection-start-line="99" selection-start-column="17" selection-end-line="99" selection-end-column="17" />
+          <folding>
+            <element signature="e#2881#2882#0" expanded="true" />
+            <element signature="e#2912#2913#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/deviotion/ld/eggine/Eggine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/state/StateManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/deviotion/ld/eggine/graphics/Screen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="e#573#574#0" expanded="true" />
+            <element signature="e#597#598#0" expanded="true" />
+            <element signature="e#958#959#0" expanded="true" />
+            <element signature="e#986#987#0" expanded="true" />
+            <element signature="e#1162#1163#0" expanded="true" />
+            <element signature="e#1176#1177#0" expanded="true" />
+            <element signature="e#1207#1208#0" expanded="true" />
+            <element signature="e#1227#1228#0" expanded="true" />
+            <element signature="e#1154#1155#0" expanded="true" />
+            <element signature="e#1214#1215#0" expanded="true" />
+            <element signature="e#7310#7311#0" expanded="true" />
+            <element signature="e#7378#7379#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/deviotion/ld/eggine/graphics/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/deviotion/ld/eggine/input/Keyboard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="33" column="52" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
+          <folding>
+            <element signature="e#766#767#0" expanded="true" />
+            <element signature="e#795#796#0" expanded="true" />
+            <element signature="e#1308#1309#0" expanded="true" />
+            <element signature="e#1336#1337#0" expanded="true" />
+            <element signature="e#1398#1399#0" expanded="true" />
+            <element signature="e#1441#1442#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/maze/Level.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+          <folding>
+            <element signature="e#699#700#0" expanded="true" />
+            <element signature="e#711#712#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="285">
+          <caret line="19" column="15" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/state/OptionsState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="87" column="33" selection-start-line="87" selection-start-column="33" selection-end-line="87" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/state/WinState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="35" column="75" selection-start-line="35" selection-start-column="75" selection-end-line="36" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#210#211#0" expanded="true" />
+            <element signature="e#227#228#0" expanded="true" />
+            <element signature="e#545#546#0" expanded="true" />
+            <element signature="e#594#595#0" expanded="true" />
+            <element signature="e#535#536#0" expanded="true" />
+            <element signature="e#552#553#0" expanded="true" />
+            <element signature="e#1228#1229#0" expanded="true" />
+            <element signature="e#1259#1260#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/alley/Sprite3DAlleyObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#296#297#0" expanded="true" />
+            <element signature="e#314#315#0" expanded="true" />
+            <element signature="e#251#252#0" expanded="true" />
+            <element signature="e#263#264#0" expanded="true" />
+            <element signature="e#462#463#0" expanded="true" />
+            <element signature="e#482#483#0" expanded="true" />
+            <element signature="e#525#526#0" expanded="true" />
+            <element signature="e#552#553#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/Sprite3D.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="15" column="33" lean-forward="true" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1450#1451#0" expanded="true" />
+            <element signature="e#1472#1473#0" expanded="true" />
+            <element signature="e#1517#1518#0" expanded="true" />
+            <element signature="e#1548#1549#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/Sprites.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state relative-caret-position="314">
+          <caret line="67" column="43" lean-forward="true" selection-start-line="67" selection-start-column="43" selection-end-line="67" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#243#244#0" expanded="true" />
-            <element signature="e#320#321#0" expanded="true" />
+            <element signature="e#2387#2388#0" expanded="true" />
+            <element signature="e#2410#2411#0" expanded="true" />
+            <element signature="e#2333#2334#0" expanded="true" />
+            <element signature="e#2367#2368#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/alley/House.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/graphics/SimplexNoise.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-165">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding>
+            <element signature="e#2609#2610#0" expanded="true" />
+            <element signature="e#2640#2641#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/alley/Bridge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/state/FailState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#212#213#0" expanded="true" />
+            <element signature="e#235#236#0" expanded="true" />
+            <element signature="e#394#395#0" expanded="true" />
+            <element signature="e#408#409#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/alley/Alley.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+          <folding>
+            <element signature="e#696#697#0" expanded="true" />
+            <element signature="e#718#719#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/graphics/Viewport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="269" column="56" lean-forward="true" selection-start-line="269" selection-start-column="56" selection-end-line="269" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/state/game/DecisionGameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="218" column="44" lean-forward="true" selection-start-line="218" selection-start-column="44" selection-end-line="218" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/alley/AlleyObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/state/game/PlayerCar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="73" column="5" lean-forward="true" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2105#2106#0" expanded="true" />
+            <element signature="e#2115#2116#0" expanded="true" />
+            <element signature="e#2222#2223#0" expanded="true" />
+            <element signature="e#2249#2250#0" expanded="true" />
+            <element signature="e#2276#2277#0" expanded="true" />
+            <element signature="e#2295#2296#0" expanded="true" />
+            <element signature="e#2331#2332#0" expanded="true" />
+            <element signature="e#2349#2350#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/Dither.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="154" column="50" lean-forward="true" selection-start-line="154" selection-start-column="50" selection-end-line="154" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/state/GameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="63" column="28" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3760#3761#0" expanded="true" />
+            <element signature="e#3782#3783#0" expanded="true" />
+            <element signature="e#3844#3845#0" expanded="true" />
+            <element signature="e#3918#3919#0" expanded="true" />
+            <element signature="e#4351#4352#0" expanded="true" />
+            <element signature="e#4423#4424#0" expanded="true" />
+            <element signature="e#4457#4458#0" expanded="true" />
+            <element signature="e#4479#4480#0" expanded="true" />
+            <element signature="e#4511#4512#0" expanded="true" />
+            <element signature="e#4547#4548#0" expanded="true" />
+            <element signature="e#4590#4591#0" expanded="true" />
+            <element signature="e#4625#4626#0" expanded="true" />
+            <element signature="e#4655#4656#0" expanded="true" />
+            <element signature="e#4672#4673#0" expanded="true" />
+            <element signature="e#6233#6234#0" expanded="true" />
+            <element signature="e#6265#6266#0" expanded="true" />
+            <element signature="e#6319#6320#0" expanded="true" />
+            <element signature="e#6358#6359#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/maze/MazeGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#852#853#0" expanded="true" />
+            <element signature="e#879#880#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/state/game/ObstaclesGameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="172" column="9" lean-forward="true" selection-start-line="172" selection-start-column="9" selection-end-line="172" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5370#5371#0" expanded="true" />
+            <element signature="e#5392#5393#0" expanded="true" />
+            <element signature="e#5691#5692#0" expanded="true" />
+            <element signature="e#5720#5721#0" expanded="true" />
+            <element signature="e#5779#5780#0" expanded="true" />
+            <element signature="e#5824#5825#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/naronco/thm2018/Options.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
@@ -819,10 +1181,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>InfinityJam:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -870,7 +1234,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

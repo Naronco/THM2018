@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="InfinityJam:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/InfinityJam_jar</output-path>
+    <root id="archive" name="InfinityJam.jar">
+      <element id="module-output" name="InfinityJam" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/java-openal-1.1.0-SNAPSHOT.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/discord-rpc.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
